@@ -1,4 +1,17 @@
-import type { Device, Plan, Scene, TabItem } from '../types/app';
+import type {
+  Device,
+  LightDeviceDetail,
+  LightPlanDetail,
+  Plan,
+  Scene,
+  TabItem,
+  IrrigationPlanDetail,
+  WaterPlanDetail,
+  WaterDeviceDetail,
+} from '../types/app';
+import lightDetailMonitorImage from '../../assets/light-detail-monitor.jpg';
+import lightPlanDetailHeroImage from '../../assets/light-plan-detail-hero.jpg';
+import waterPlanDetailHeroImage from '../../assets/water-plan-detail-hero.jpg';
 
 export const ownerTabs: TabItem[] = [
   { label: '首页', to: '/owner/home', icon: 'dashboard' },
@@ -136,7 +149,287 @@ export const ownerDevices: Device[] = [
   { id: 'valve-b2', name: '阀门 B2', zone: '草坪灌溉区', metric: '待机', state: '在线' },
 ];
 
+export const ownerLightDeviceDetails: Record<string, LightDeviceDetail> = {
+  'front-path-light': {
+    id: 'front-path-light',
+    name: '前院路径灯',
+    status: 'Online',
+    icon: 'park',
+    powerOn: true,
+    brightness: 70,
+    zone: '前院',
+    plan: '日落后开启, 23:30 关闭',
+    scenes: ['夜景模式', '离家模式'],
+    temperatures: ['暖白', '自然白', '冷白'],
+    activeTemperature: '暖白',
+    colorOptions: ['#f6d38b', '#88d982', '#70c4ff', '#877bff', '#f06fd9'],
+    activeColor: '#88d982',
+    monitorImage: lightDetailMonitorImage,
+    monitorTitle: '查看实时花园监控',
+    monitorSubtitle: '当前能见度: 良好',
+    summaryLabel: '开启',
+    infoCards: [
+      { id: 'zone', label: '所属区域', value: '前院', icon: 'location_on' },
+      { id: 'plan', label: '当前计划', value: '日落后开启, 23:30 关闭', icon: 'schedule' },
+      { id: 'scene', label: '所属场景', value: '夜景模式、离家模式', icon: 'layers' },
+    ],
+    quickActions: [
+      { id: 'countdown', label: '倒计时关闭', icon: 'timer' },
+      { id: 'scene', label: '加入场景', icon: 'add_circle' },
+      { id: 'plan', label: '设置计划', icon: 'event_note' },
+      { id: 'history', label: '运行记录', icon: 'history' },
+    ],
+  },
+};
+
+export const ownerWaterDeviceDetails: Record<string, WaterDeviceDetail> = {
+  'fountain-pump': {
+    id: 'fountain-pump',
+    name: '喷泉泵',
+    status: '在线',
+    runtimeToday: '3h 20m',
+    waterLevelStatus: '正常',
+    protectionEnabledLabel: '保护已开启',
+    heroIcon: 'sprinkler',
+    heroStatusLabel: '运行中',
+    stabilityLabel: '运行稳定性：98%',
+    powerLabel: '停止水泵',
+    powerHint: '再次点击以确认关闭',
+    timerOptions: [
+      { id: '30m', label: '30分钟', icon: 'timer_10' },
+      { id: '1h', label: '1小时', icon: 'timer' },
+      { id: 'custom', label: '自定义', icon: 'more_time' },
+    ],
+    activeTimerOption: '1h',
+    protectionCards: [
+      { id: 'dry-run', title: '干烧保护', icon: 'shield', value: '联动', status: '安全', tone: 'primary' },
+      { id: 'auto-fill', title: '自动补水', icon: 'water_drop', value: '联动', status: '就绪', tone: 'muted' },
+    ],
+    runtimeLimitLabel: '最大运行时长',
+    runtimeLimitValue: '6.0 小时 / 周期',
+    runtimeLimitAction: '调整',
+    scheduleTitle: '08:00 - 22:00 运行计划',
+    scheduleSubtitle: '当前状态：运行至 22:00',
+    logActions: [
+      { id: 'logs', title: '运行', subtitle: '日志', icon: 'list_alt', tone: 'secondary' },
+      { id: 'alerts', title: '告警', subtitle: '历史', icon: 'warning', tone: 'danger' },
+    ],
+    previewImage:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuB502wKSVn7X5Mb_BeNCexNgJF8z0-HMJhVObYcnizVKlAYT3Q3HLaw5te9buode60LaQzBNw1Q7tO_2UIw6VqLVFC1C5ltszEnSZuaGtV72QWY0MEQN49_Mi5OdjPKEHASGeyB92S9KggtMbxP4kzE9zp6c_vn7qKQY22a8DQrDJBD9yU_xE-_CN4piRLM6kBxzwVlNuFMhEioBKPQj1WTslV25eaouRPZeS_-rHgJeMIaRxblTCHZscLkZKi5qwVdBBxSABNbFeY',
+    previewEyebrow: '设备预览',
+    previewTitle: '主庭院水景',
+  },
+};
+
 export const ownerPlans: Plan[] = [
-  { id: 'irrigation-morning', name: '晨间灌溉', window: '06:00 - 06:25', target: '东侧草坪', status: '启用' },
-  { id: 'waterfall-night', name: '夜间水景', window: '19:30 - 22:00', target: '主瀑布循环', status: '草稿' },
+  { id: 'daily-lighting', name: '每日夜景灯光', window: '日落后 15 分钟 - 23:30', target: '前后院景观照明', status: '启用' },
+  { id: 'day-fountain', name: '白天喷泉', window: '08:00 - 22:00', target: '主庭院喷泉', status: '启用' },
+  { id: 'morning-irrigation', name: '早晨浇水', window: '周一三五 06:30', target: '东侧草坪', status: '启用' },
+  { id: 'low-water-protection', name: '缺水停泵', window: '实时监测', target: '主泵与水景系统', status: '草稿' },
 ];
+
+export const ownerLightPlanDetails: Record<string, LightPlanDetail> = {
+  'daily-lighting': {
+    id: 'daily-lighting',
+    name: '每日夜景灯光',
+    enabled: true,
+    heroImage: lightPlanDetailHeroImage,
+    categoryLabel: '灯光计划',
+    triggerLabel: '日落后 15 分钟',
+    endLabel: '23:30 结束',
+    repeatLabel: '每天',
+    ownerBadge: '屋主创建',
+    summaryTitle: '计划摘要',
+    summaryText: '今天日落后 15 分钟自动开启 3 个灯光设备，23:30 自动关闭。',
+    nextRunLabel: '下次运行：今天 18:42',
+    devices: [
+      {
+        id: 'front-path-light',
+        name: '前院路径灯',
+        icon: 'straighten',
+        tone: 'primary',
+        brightness: '亮度 70%',
+        colorLabel: '暖白',
+        colorTone: 'warm',
+        state: 'ON',
+      },
+      {
+        id: 'back-landscape-light',
+        name: '后院景观灯',
+        icon: 'park',
+        tone: 'primary',
+        brightness: '亮度 50%',
+        colorLabel: '暖白',
+        colorTone: 'warm',
+        state: 'ON',
+      },
+      {
+        id: 'pond-underwater-light',
+        name: '池塘水下灯',
+        icon: 'pool',
+        tone: 'secondary',
+        brightness: '亮度 40%',
+        colorLabel: '蓝色',
+        colorTone: 'blue',
+        state: 'ON',
+      },
+    ],
+    histories: [
+      {
+        id: 'today',
+        time: '今天 18:42',
+        message: '计划自动启动，所有设备在线',
+        tone: 'success',
+      },
+      {
+        id: 'yesterday',
+        time: '昨天 18:43',
+        message: '由于日落时间偏移自动调整',
+        tone: 'success',
+      },
+      {
+        id: 'before-yesterday',
+        time: '前天 18:41',
+        message: '部分失败：池塘水下灯离线',
+        tone: 'error',
+      },
+    ],
+  },
+};
+
+export const ownerWaterPlanDetails: Record<string, WaterPlanDetail> = {
+  'day-fountain': {
+    id: 'day-fountain',
+    name: '白天喷泉',
+    enabled: true,
+    heroImage: waterPlanDetailHeroImage,
+    statusBadge: 'Active',
+    typeLabel: '水景计划',
+    cycleLabel: '每天',
+    scheduleLabel: '08:00 - 22:00',
+    sourceLabel: '安装商预设',
+    protectionTitle: '安全防护',
+    protectionFooter: '保护规则由安装商配置，确保运行安全',
+    protections: [
+      { id: 'dry-run', icon: 'opacity', label: '缺水保护', value: '已开启' },
+      { id: 'low-level', icon: 'power_off', label: '水位低时', value: '自动关闭喷泉泵' },
+      { id: 'runtime-limit', icon: 'timer_off', label: '最大运行保护', value: '已开启' },
+    ],
+    devices: [
+      {
+        id: 'fountain-pump',
+        name: '喷泉泵',
+        icon: 'water_pump',
+        tone: 'primary',
+        schedule: '08:00 开启 / 22:00 关闭',
+        statusLabel: '运行中',
+        statusTone: 'active',
+      },
+      {
+        id: 'waterfall-pump',
+        name: '瀑布泵',
+        icon: 'waves',
+        tone: 'muted',
+        schedule: '08:00 开启 / 22:00 关闭',
+        statusLabel: '已关闭',
+        statusTone: 'inactive',
+      },
+      {
+        id: 'underwater-light',
+        name: '水下灯',
+        icon: 'wb_iridescent',
+        tone: 'secondary',
+        schedule: '随喷泉开启',
+        statusLabel: '自动',
+        statusTone: 'auto',
+      },
+    ],
+    histories: [
+      {
+        id: 'today-on',
+        time: '今天 08:00',
+        label: 'SUCCESS',
+        message: '执行成功，喷泉泵已开启',
+        tone: 'success',
+      },
+      {
+        id: 'yesterday-off',
+        time: '昨天 22:00',
+        label: 'SUCCESS',
+        message: '执行成功，喷泉泵已关闭',
+        tone: 'success',
+      },
+      {
+        id: 'yesterday-protected',
+        time: '昨天 14:12',
+        label: 'PROTECTED',
+        message: '水位低，触发保护性停机',
+        tone: 'protected',
+      },
+    ],
+  },
+};
+
+export const ownerIrrigationPlanDetails: Record<string, IrrigationPlanDetail> = {
+  'morning-irrigation': {
+    id: 'morning-irrigation',
+    name: '早晨浇水',
+    enabled: true,
+    categoryLabel: '基础灌溉计划',
+    totalDuration: '23 分钟',
+    startTime: '06:30',
+    repeatLabel: '周一、周三、周五',
+    nextRunLabel: '周三 06:30',
+    sourceLabel: '屋主创建',
+    rainSkipTitle: '雨天跳过',
+    rainSkipStatus: '已开启',
+    rainSkipCondition: '未来 12 小时降雨概率超过 60%',
+    rainSkipToday: '今日状态：无降雨影响',
+    zones: [
+      {
+        id: 'front-bed',
+        order: '01',
+        name: '前院花坛',
+        duration: '8 min',
+        sequenceLabel: '第 1 个执行',
+        protectionLabel: '保护: 15 min',
+      },
+      {
+        id: 'back-drip',
+        order: '02',
+        name: '后院滴灌',
+        duration: '10 min',
+        sequenceLabel: '第 2 个执行',
+        protectionLabel: '保护: 15 min',
+      },
+      {
+        id: 'terrace-pots',
+        order: '03',
+        name: '露台盆栽',
+        duration: '5 min',
+        sequenceLabel: '第 3 个执行',
+        protectionLabel: '保护: 10 min',
+      },
+    ],
+    histories: [
+      {
+        id: 'today-success',
+        title: '今天 06:30 执行成功',
+        message: '完整运行所有区域，耗时 23 分钟',
+        tone: 'success',
+      },
+      {
+        id: 'monday-skip',
+        title: '周一 06:30 因降雨跳过',
+        message: '降雨预测概率 85%，触发保护机制',
+        tone: 'skip',
+      },
+      {
+        id: 'last-friday-failed',
+        title: '上周五 06:30 部分失败',
+        message: '后院滴灌阀门离线',
+        tone: 'error',
+      },
+    ],
+  },
+};

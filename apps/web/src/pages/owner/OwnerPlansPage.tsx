@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 type PlanCard = {
   id: string;
@@ -70,9 +71,9 @@ export function OwnerPlansPage() {
       <header className="owner-plans-header">
         <div className="owner-plans-header-spacer" aria-hidden="true" />
         <h1 className="owner-plans-title">计划</h1>
-        <button type="button" className="owner-plans-add-button" aria-label="新增计划">
+        <Link to="/owner/plans/create" className="scene-icon-button scene-icon-button-link" aria-label="创建计划">
           <span className="material-symbols-outlined">add</span>
-        </button>
+        </Link>
       </header>
 
       <nav className="owner-plans-tabs" aria-label="计划分类">
@@ -102,54 +103,82 @@ export function OwnerPlansPage() {
 
       <section className="owner-plans-card-list">
         {visiblePlans.map((plan) => (
-          <article
-            key={plan.id}
-            className={`owner-plan-card owner-plan-card-${plan.accent}${plan.kind === '保护规则' ? ' is-protection' : ''}`}
-          >
-            {plan.kind === '保护规则' ? (
+          plan.kind === '保护规则' ? (
+            <div
+              key={plan.id}
+              className={`owner-plan-card owner-plan-card-${plan.accent} is-protection`}
+            >
               <div className="owner-plan-protection-mark" aria-hidden="true">
                 <span className="material-symbols-outlined">gpp_maybe</span>
               </div>
-            ) : null}
 
-            <div className="owner-plan-card-top">
-              <div className="owner-plan-card-main">
-                <div className={`owner-plan-icon owner-plan-icon-${plan.accent}`}>
-                  <span className="material-symbols-outlined">{plan.icon}</span>
+              <div className="owner-plan-card-top">
+                <div className="owner-plan-card-main">
+                  <div className={`owner-plan-icon owner-plan-icon-${plan.accent}`}>
+                    <span className="material-symbols-outlined">{plan.icon}</span>
+                  </div>
+                  <div>
+                    <span className={`owner-plan-kind owner-plan-kind-${plan.accent}`}>{plan.kind}</span>
+                    <h3 className="owner-plan-title">{plan.title}</h3>
+                  </div>
                 </div>
-                <div>
-                  <span className={`owner-plan-kind owner-plan-kind-${plan.accent}`}>{plan.kind}</span>
-                  <h3 className="owner-plan-title">{plan.title}</h3>
-                </div>
+
+                <label className="owner-plan-switch-wrap">
+                  <input type="checkbox" checked={plan.enabled} readOnly />
+                  <span className={`owner-plan-switch owner-plan-switch-${plan.accent}`} />
+                </label>
               </div>
 
-              <label className="owner-plan-switch-wrap">
-                <input type="checkbox" checked={plan.enabled} readOnly />
-                <span className={`owner-plan-switch owner-plan-switch-${plan.accent}`} />
-              </label>
-            </div>
-
-            <div className="owner-plan-card-bottom">
-              <div className={`owner-plan-summary owner-plan-summary-${plan.accent}`}>
-                <span className="material-symbols-outlined">
-                  {plan.kind === '灯光计划'
-                    ? 'schedule'
-                    : plan.kind === '水景计划'
-                      ? 'access_time'
-                      : plan.kind === '灌溉计划'
-                        ? 'calendar_month'
-                        : 'sensors'}
-                </span>
-                <span>{plan.summary}</span>
-              </div>
-              {plan.extra ? (
-                <div className={`owner-plan-extra${plan.kind === '灌溉计划' ? ' irrigation' : ''}`}>
-                  {plan.kind === '灌溉计划' ? <span className="material-symbols-outlined">cloud_off</span> : null}
-                  <p>{plan.extra}</p>
+              <div className="owner-plan-card-bottom">
+                <div className={`owner-plan-summary owner-plan-summary-${plan.accent}`}>
+                  <span className="material-symbols-outlined">sensors</span>
+                  <span>{plan.summary}</span>
                 </div>
-              ) : null}
+              </div>
             </div>
-          </article>
+          ) : (
+            <Link
+              key={plan.id}
+              to={`/owner/plans/${plan.id}`}
+              className={`owner-plan-card owner-plan-card-${plan.accent}`}
+            >
+              <div className="owner-plan-card-top">
+                <div className="owner-plan-card-main">
+                  <div className={`owner-plan-icon owner-plan-icon-${plan.accent}`}>
+                    <span className="material-symbols-outlined">{plan.icon}</span>
+                  </div>
+                  <div>
+                    <span className={`owner-plan-kind owner-plan-kind-${plan.accent}`}>{plan.kind}</span>
+                    <h3 className="owner-plan-title">{plan.title}</h3>
+                  </div>
+                </div>
+
+                <label className="owner-plan-switch-wrap">
+                  <input type="checkbox" checked={plan.enabled} readOnly />
+                  <span className={`owner-plan-switch owner-plan-switch-${plan.accent}`} />
+                </label>
+              </div>
+
+              <div className="owner-plan-card-bottom">
+                <div className={`owner-plan-summary owner-plan-summary-${plan.accent}`}>
+                  <span className="material-symbols-outlined">
+                    {plan.kind === '灯光计划'
+                      ? 'schedule'
+                      : plan.kind === '水景计划'
+                        ? 'access_time'
+                        : 'calendar_month'}
+                  </span>
+                  <span>{plan.summary}</span>
+                </div>
+                {plan.extra ? (
+                  <div className={`owner-plan-extra${plan.kind === '灌溉计划' ? ' irrigation' : ''}`}>
+                    {plan.kind === '灌溉计划' ? <span className="material-symbols-outlined">cloud_off</span> : null}
+                    <p>{plan.extra}</p>
+                  </div>
+                ) : null}
+              </div>
+            </Link>
+          )
         ))}
       </section>
     </div>

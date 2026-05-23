@@ -10,7 +10,12 @@ export function OwnerShell() {
   const isSceneCreate = location.pathname === '/owner/scenes/create';
   const isSceneDetail = location.pathname.startsWith('/owner/scenes/');
   const isDevicesView = location.pathname === '/owner/devices';
+  const isDeviceDetail = location.pathname.startsWith('/owner/devices/');
+  const isLightDeviceDetail = location.pathname === '/owner/devices/front-path-light';
+  const isWaterDeviceDetail = location.pathname === '/owner/devices/fountain-pump';
   const isPlansView = location.pathname === '/owner/plans';
+  const isPlanCreate = location.pathname.startsWith('/owner/plans/create');
+  const isPlanDetail = location.pathname.startsWith('/owner/plans/') && !isPlansView && !isPlanCreate;
   const isProfileView = location.pathname === '/owner/profile';
   const isScenesView = isScenesList || isSceneCreate || isSceneDetail;
 
@@ -40,7 +45,7 @@ export function OwnerShell() {
         </button>
       </div>
     </header>
-  ) : isScenesView || isDevicesView || isPlansView || isProfileView ? null : (
+  ) : isScenesView || isDevicesView || isDeviceDetail || isPlansView || isPlanCreate || isPlanDetail || isProfileView ? null : (
     <header className="owner-page-header">
       <div className="owner-page-header-main">
         <div className="owner-page-header-icon">
@@ -61,7 +66,12 @@ export function OwnerShell() {
     <AppFrame
       header={header}
       contentClassName={
-        isSceneCreate || isSceneDetail
+        isLightDeviceDetail
+          ? 'page-scroll page-scroll-light-detail'
+        : isWaterDeviceDetail
+          ? 'page-scroll page-scroll-water-detail'
+        : isSceneCreate || isSceneDetail
+          || isDeviceDetail || isPlanCreate || isPlanDetail
           ? 'page-scroll page-scroll-detail'
           : isScenesList
             ? 'page-scroll page-scroll-scenes'
@@ -73,7 +83,7 @@ export function OwnerShell() {
                 ? 'page-scroll page-scroll-profile'
             : undefined
       }
-      tabBar={isSceneCreate || isSceneDetail ? null : <TabBar items={ownerTabs} />}
+      tabBar={isSceneCreate || isSceneDetail || isDeviceDetail || isPlanCreate || isPlanDetail ? null : <TabBar items={ownerTabs} />}
     >
       <Outlet />
     </AppFrame>

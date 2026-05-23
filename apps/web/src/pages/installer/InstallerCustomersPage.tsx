@@ -8,6 +8,7 @@ export function InstallerCustomersPage() {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const [activeFilter, setActiveFilter] = useState<(typeof customerFilters)[number]>('全部');
+  const stitchedCustomerDetailIds = new Set(['c-88']);
 
   const visibleCustomers = useMemo(() => {
     const keyword = searchValue.trim().toLowerCase();
@@ -69,7 +70,11 @@ export function InstallerCustomersPage() {
           <article
             key={customer.id}
             className={`installer-customer-card installer-customer-card-${customer.accent ?? 'normal'}`}
-            onClick={() => navigate(`/installer/customers/${customer.id}`)}
+            onClick={() => {
+              if (stitchedCustomerDetailIds.has(customer.id)) {
+                navigate(`/installer/customers/${customer.id}`);
+              }
+            }}
           >
             {customer.accent === 'danger' || customer.accent === 'secondary' ? (
               <span className="installer-customer-rail" />

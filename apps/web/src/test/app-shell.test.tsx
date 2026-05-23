@@ -19,7 +19,7 @@ describe('app shell', () => {
     renderApp();
 
     expect(screen.getByText('HyecoSmart')).toBeInTheDocument();
-    expect(screen.getByText('请选择你的用户类型')).toBeInTheDocument();
+    expect(screen.getByText('选择用户类型')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /我是屋主/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /我是安装商/ })).toBeInTheDocument();
   });
@@ -28,7 +28,7 @@ describe('app shell', () => {
     renderApp(['/owner/home']);
 
     expect(screen.getByRole('tab', { name: /首页/ })).toBeInTheDocument();
-    expect(screen.getByRole('tab', { name: /地景/ })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /场景/ })).toBeInTheDocument();
     expect(screen.getByRole('tab', { name: /设备/ })).toBeInTheDocument();
     expect(screen.getByRole('tab', { name: /计划/ })).toBeInTheDocument();
     expect(screen.getByRole('tab', { name: /我的/ })).toBeInTheDocument();

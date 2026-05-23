@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 type DeviceCard = {
   id: string;
@@ -14,6 +15,7 @@ type DeviceCard = {
   badge?: string;
   warning?: boolean;
   actionLabel?: string;
+  detailTo?: string;
 };
 
 const categoryTabs = ['全部', '灯光', '水景', '户外设备', '灌溉', '传感器'] as const;
@@ -31,6 +33,7 @@ const deviceCards: DeviceCard[] = [
     onlineState: '在线',
     statusLine: '开启, 亮度 70%',
     enabled: true,
+    detailTo: '/owner/devices/front-path-light',
   },
   {
     id: 'fountain-pump',
@@ -43,6 +46,7 @@ const deviceCards: DeviceCard[] = [
     onlineState: '在线',
     statusLine: '运行中',
     enabled: true,
+    detailTo: '/owner/devices/fountain-pump',
   },
   {
     id: 'pump-warning',
@@ -96,6 +100,7 @@ const deviceCards: DeviceCard[] = [
 ];
 
 export function OwnerDevicesPage() {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState<(typeof categoryTabs)[number]>('全部');
   const [activeZone, setActiveZone] = useState<(typeof zoneChips)[number]>('前院');
 
@@ -166,11 +171,26 @@ export function OwnerDevicesPage() {
       </div>
 
       <section className="owner-devices-grid">
-        {filteredDevices.map((device) => (
-          <article
-            key={device.id}
-            className={`owner-device-card owner-device-card-${device.tone}${device.warning ? ' is-warning' : ''}${device.onlineState === '离线' ? ' is-offline' : ''}`}
-          >
+        {filteredDevices.map((device) => {
+          const detailTo = device.detailTo;
+
+          return (
+            <article
+              key={device.id}
+              className={`owner-device-card owner-device-card-${device.tone}${device.warning ? ' is-warning' : ''}${device.onlineState === '离线' ? ' is-offline' : ''}${detailTo ? ' is-link' : ''}`}
+              role={detailTo ? 'link' : undefined}
+              tabIndex={detailTo ? 0 : undefined}
+              aria-label={detailTo ? `查看${device.name}详情` : undefined}
+              onClick={detailTo ? () => navigate(detailTo) : undefined}
+              onKeyDown={detailTo
+                ? (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                      event.preventDefault();
+                      navigate(detailTo);
+                    }
+                  }
+                : undefined}
+            >
             {device.warning ? (
               <div className="owner-device-warning-ribbon">
                 <span className="material-symbols-outlined">error</span>
@@ -226,8 +246,9 @@ export function OwnerDevicesPage() {
                 </label>
               )}
             </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </section>
     </div>
   );

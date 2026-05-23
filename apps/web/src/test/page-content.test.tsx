@@ -28,7 +28,7 @@ describe('stitched page content', () => {
     expect(screen.getByText('开启彩色灯光、喷泉和户外插座')).toBeInTheDocument();
     expect(screen.getByText('关闭喷泉和户外设备，保留安全路径灯')).toBeInTheDocument();
     expect(screen.getByText('关闭允许关闭的灯光、水景和户外设备')).toBeInTheDocument();
-    expect(screen.getByRole('tab', { name: /地景/ })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /场景/ })).toBeInTheDocument();
   });
 
   it('shows the Stitch-aligned owner scene detail', () => {
@@ -61,53 +61,196 @@ describe('stitched page content', () => {
   it('shows owner devices overview and maintenance focus', () => {
     renderRoute('/owner/devices');
 
-    expect(screen.getByText('设备控制')).toBeInTheDocument();
-    expect(screen.getByText('全部设备')).toBeInTheDocument();
-    expect(screen.getByText('关键设备')).toBeInTheDocument();
-    expect(screen.getByText('设备总览')).toBeInTheDocument();
-    expect(screen.getByText('12 台在线')).toBeInTheDocument();
-    expect(screen.getByText('维护关注')).toBeInTheDocument();
-    expect(screen.getByText('分区设备')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '设备' })).toBeInTheDocument();
+    expect(screen.getByPlaceholderText('搜索设备名称...')).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /全部/ })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /灯光/ })).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: /水景/ })).toBeInTheDocument();
+    expect(screen.getAllByText('前院').length).toBeGreaterThan(0);
+    expect(screen.getByRole('link', { name: '查看前院路径灯详情' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '查看喷泉泵详情' })).toBeInTheDocument();
   });
 
   it('shows owner plans dashboard and creation entry', () => {
     renderRoute('/owner/plans');
 
-    expect(screen.getByText('计划与自动化')).toBeInTheDocument();
-    expect(screen.getByText('本周节奏')).toBeInTheDocument();
-    expect(screen.getByText('推荐模板')).toBeInTheDocument();
-    expect(screen.getByText('计划中心')).toBeInTheDocument();
-    expect(screen.getByText('创建新计划')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '计划' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '创建计划' })).toBeInTheDocument();
+    expect(screen.getByText('智能计划摘要')).toBeInTheDocument();
+    expect(screen.getByText('今日预计节省 15% 灌溉用水')).toBeInTheDocument();
+    expect(screen.getByText('每日夜景灯光')).toBeInTheDocument();
+    expect(screen.getByText('白天喷泉')).toBeInTheDocument();
+    expect(screen.getByText('早晨浇水')).toBeInTheDocument();
+    expect(screen.getByText('缺水停泵')).toBeInTheDocument();
+  });
+
+  it('shows the stitched plan type selection page', () => {
+    renderRoute('/owner/plans/create');
+
+    expect(screen.getByRole('heading', { name: '创建计划' })).toBeInTheDocument();
+    expect(screen.getByText('选择你想自动执行的计划类型')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /灯光计划/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /水景 \/ 喷泉计划/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /户外设备计划/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /基础灌溉计划/ })).toBeInTheDocument();
+    expect(screen.getByText(/缺水停泵、自动补水、补水超时等安全保护规则由安装商配置/)).toBeInTheDocument();
+    expect(screen.getByAltText('Modern automated garden')).toBeInTheDocument();
+    expect(screen.getByText('自动化控制让一切更简单')).toBeInTheDocument();
+  });
+
+  it('shows the stitched owner light plan creation page', () => {
+    renderRoute('/owner/plans/create/light');
+
+    expect(screen.getByRole('heading', { name: '创建灯光计划' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '保存' })).toBeInTheDocument();
+    expect(screen.getByDisplayValue('每日夜景灯光')).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: '日落后' })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByText('+15 分钟')).toBeInTheDocument();
+    expect(screen.getByText('23:30')).toBeInTheDocument();
+    expect(screen.getByText('前院路径灯')).toBeInTheDocument();
+    expect(screen.getByText('池塘水下灯')).toBeInTheDocument();
+    expect(screen.getByText('计划概要')).toBeInTheDocument();
+  });
+
+  it('shows the stitched owner water plan creation page', () => {
+    renderRoute('/owner/plans/create/water');
+
+    expect(screen.getByRole('heading', { name: '创建水景计划' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '保存' })).toBeInTheDocument();
+    expect(screen.getByDisplayValue('白天喷泉')).toBeInTheDocument();
+    expect(screen.getByText('运行时间')).toBeInTheDocument();
+    expect(screen.getByText('08:00')).toBeInTheDocument();
+    expect(screen.getByText('22:00')).toBeInTheDocument();
+    expect(screen.getByRole('tab', { name: '每天' })).toHaveAttribute('aria-selected', 'true');
+    expect(screen.getByText('安全保护状态')).toBeInTheDocument();
+    expect(screen.getByText('喷泉泵')).toBeInTheDocument();
+    expect(screen.getByText('过滤器开关')).toBeInTheDocument();
+    expect(screen.getByText('预估计划效果')).toBeInTheDocument();
+  });
+
+  it('shows the stitched owner outdoor device plan creation page', () => {
+    renderRoute('/owner/plans/create/outdoor');
+
+    expect(screen.getByRole('heading', { name: '创建户外设备计划' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '保存' })).toBeInTheDocument();
+    expect(screen.getByDisplayValue('节日灯定时')).toBeInTheDocument();
+    expect(screen.getByText('执行设备')).toBeInTheDocument();
+    expect(screen.getByText('户外插座')).toBeInTheDocument();
+    expect(screen.getByText('节日灯')).toBeInTheDocument();
+    expect(screen.getByText('运行时间')).toBeInTheDocument();
+    expect(screen.getAllByText('18:00').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('23:00').length).toBeGreaterThan(0);
+    expect(screen.getByText('安全保护（防忘关）')).toBeInTheDocument();
+    expect(screen.getByText('最大连续运行')).toBeInTheDocument();
+  });
+
+  it('shows the stitched owner light plan detail page', () => {
+    renderRoute('/owner/plans/daily-lighting');
+
+    expect(screen.getByRole('heading', { name: '每日夜景灯光' })).toBeInTheDocument();
+    expect(screen.getByAltText('Night Garden')).toBeInTheDocument();
+    expect(screen.getByText('灯光计划')).toBeInTheDocument();
+    expect(screen.getByText('日落后 15 分钟')).toBeInTheDocument();
+    expect(screen.getByText('23:30 结束')).toBeInTheDocument();
+    expect(screen.getByText('计划摘要')).toBeInTheDocument();
+    expect(screen.getByText('前院路径灯')).toBeInTheDocument();
+    expect(screen.getByText('池塘水下灯')).toBeInTheDocument();
+    expect(screen.getByText('立即执行一次')).toBeInTheDocument();
+    expect(screen.getByText('执行记录')).toBeInTheDocument();
+    expect(screen.getByText('部分失败：池塘水下灯离线')).toBeInTheDocument();
+  });
+
+  it('shows the stitched owner water plan detail page', () => {
+    renderRoute('/owner/plans/day-fountain');
+
+    expect(screen.getByRole('heading', { name: '白天喷泉' })).toBeInTheDocument();
+    expect(screen.getByAltText('Garden Fountain')).toBeInTheDocument();
     expect(screen.getByText('计划类型')).toBeInTheDocument();
-    expect(screen.getByText('19:30 夜间水景')).toBeInTheDocument();
+    expect(screen.getByText('水景计划')).toBeInTheDocument();
+    expect(screen.getByText('安全防护')).toBeInTheDocument();
+    expect(screen.getByText('缺水保护')).toBeInTheDocument();
+    expect(screen.getByText('执行设备状态')).toBeInTheDocument();
+    expect(screen.getByText('喷泉泵')).toBeInTheDocument();
+    expect(screen.getByText('立即开启 30 分钟')).toBeInTheDocument();
+    expect(screen.getByText('联系安装商')).toBeInTheDocument();
+    expect(screen.getByText('执行历史')).toBeInTheDocument();
+    expect(screen.getByText('水位低，触发保护性停机')).toBeInTheDocument();
+  });
+
+  it('shows the stitched owner irrigation plan detail page', () => {
+    renderRoute('/owner/plans/morning-irrigation');
+
+    expect(screen.getByRole('heading', { level: 1, name: '早晨浇水' })).toBeInTheDocument();
+    expect(screen.getByText('基础灌溉计划')).toBeInTheDocument();
+    expect(screen.getByText('总时长')).toBeInTheDocument();
+    expect(screen.getByText('23 分钟')).toBeInTheDocument();
+    expect(screen.getByText('雨天跳过')).toBeInTheDocument();
+    expect(screen.getByText('执行区域 (3)')).toBeInTheDocument();
+    expect(screen.getByText('前院花坛')).toBeInTheDocument();
+    expect(screen.getByText('后院滴灌')).toBeInTheDocument();
+    expect(screen.getByText('立即执行一次')).toBeInTheDocument();
+    expect(screen.getByText('执行历史')).toBeInTheDocument();
+    expect(screen.getByText('后院滴灌阀门离线')).toBeInTheDocument();
   });
 
   it('shows installer workbench operations summary', () => {
     renderRoute('/installer/workbench');
 
-    expect(screen.getByText('待处理工单')).toBeInTheDocument();
-    expect(screen.getByText('今日现场安排')).toBeInTheDocument();
-    expect(screen.getByText('09:30 桃源别墅灌溉升级')).toBeInTheDocument();
+    expect(screen.getByText('待处理事项')).toBeInTheDocument();
+    expect(screen.getByText('近期维护动态')).toBeInTheDocument();
+    expect(screen.getByText('王先生后院')).toBeInTheDocument();
+    expect(screen.getByText('李女士花园')).toBeInTheDocument();
+    expect(screen.getByText('今天有 2 个项目设备离线')).toBeInTheDocument();
+  });
+
+  it('shows the stitched installer project detail page', () => {
+    renderRoute('/installer/projects/p-101');
+
+    expect(screen.getByRole('heading', { name: '王先生后院' })).toBeInTheDocument();
+    expect(screen.getByText('客户: 王先生')).toBeInTheDocument();
+    expect(screen.getByText('设备总数')).toBeInTheDocument();
+    expect(screen.getByText('项目授权')).toBeInTheDocument();
+    expect(screen.getByText('通道测试')).toBeInTheDocument();
+    expect(screen.getByText('点位图')).toBeInTheDocument();
+    expect(screen.getByText('最近告警')).toBeInTheDocument();
+    expect(screen.getByText('区域 3：中心池塘传感器报告深度 < 15%。')).toBeInTheDocument();
+  });
+
+  it('shows the stitched installer customer detail page', () => {
+    renderRoute('/installer/customers/c-88');
+
+    expect(screen.getByText('安装商门户')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '王先生' })).toBeInTheDocument();
+    expect(screen.getByText('已授权')).toBeInTheDocument();
+    expect(screen.getByText('快捷操作')).toBeInTheDocument();
+    expect(screen.getByText('新建项目')).toBeInTheDocument();
+    expect(screen.getByText('查看维护记录')).toBeInTheDocument();
+    expect(screen.getByText('项目')).toBeInTheDocument();
+    expect(screen.getByText('王先生前院灯光')).toBeInTheDocument();
   });
 
   it('shows owner profile account and service settings', () => {
     renderRoute('/owner/profile');
 
-    expect(screen.getByText('家庭与服务')).toBeInTheDocument();
-    expect(screen.getByText('快捷操作')).toBeInTheDocument();
-    expect(screen.getByText('服务历程')).toBeInTheDocument();
-    expect(screen.getByText('林先生家庭账户')).toBeInTheDocument();
-    expect(screen.getByText('园艺助手')).toBeInTheDocument();
-    expect(screen.getByText('设备分享')).toBeInTheDocument();
-    expect(screen.getByText('通知偏好')).toBeInTheDocument();
-    expect(screen.getByText('华东花园智控')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '我的' })).toBeInTheDocument();
+    expect(screen.getByText('张先生')).toBeInTheDocument();
+    expect(screen.getByText('当前项目：我的后院')).toBeInTheDocument();
+    expect(screen.getByText('安装商授权')).toBeInTheDocument();
+    expect(screen.getByText('绿意景观工程公司')).toBeInTheDocument();
+    expect(screen.getByText('项目设置')).toBeInTheDocument();
+    expect(screen.getByText('家庭成员')).toBeInTheDocument();
+    expect(screen.getByText('通知设置')).toBeInTheDocument();
   });
 
   it('shows installer profile team and tool settings', () => {
     renderRoute('/installer/profile');
 
-    expect(screen.getByText('华东交付团队')).toBeInTheDocument();
-    expect(screen.getByText('巡检工具')).toBeInTheDocument();
-    expect(screen.getByText('值班与升级')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: '我的' })).toBeInTheDocument();
+    expect(screen.getByText('李工程师')).toBeInTheDocument();
+    expect(screen.getAllByText('智绿景观工程公司').length).toBeGreaterThan(0);
+    expect(screen.getByText('服务区域：上海市、苏州市、杭州市')).toBeInTheDocument();
+    expect(screen.getAllByText('团队成员').length).toBeGreaterThan(0);
+    expect(screen.getByText('项目权限')).toBeInTheDocument();
+    expect(screen.getByText('帮助中心')).toBeInTheDocument();
   });
 });

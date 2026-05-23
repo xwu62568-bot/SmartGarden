@@ -8,6 +8,7 @@ export function InstallerProjectsPage() {
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const [activeFilter, setActiveFilter] = useState<(typeof projectFilters)[number]>('全部');
+  const stitchedProjectDetailIds = new Set(['p-101']);
 
   const normalizedKeyword = searchValue.trim().toLowerCase();
   const visibleProjects = installerProjects.filter((project) => {
@@ -68,7 +69,11 @@ export function InstallerProjectsPage() {
           <article
             key={project.id}
             className={`installer-project-card installer-project-card-${project.accent ?? 'outline'}`}
-            onClick={() => navigate(`/installer/projects/${project.id}`)}
+            onClick={() => {
+              if (stitchedProjectDetailIds.has(project.id)) {
+                navigate(`/installer/projects/${project.id}`);
+              }
+            }}
           >
             <div className="installer-project-card-top">
               <div>
@@ -164,7 +169,9 @@ export function InstallerProjectsPage() {
                     <span className="material-symbols-outlined">info</span>
                     <span>{project.note}</span>
                   </div>
-                  <button type="button" className="installer-project-detail-button">查看详情</button>
+                  {stitchedProjectDetailIds.has(project.id) ? (
+                    <button type="button" className="installer-project-detail-button">查看详情</button>
+                  ) : null}
                 </div>
               </>
             ) : null}

@@ -1,4 +1,11 @@
-import type { AlertItem, Customer, Project, TabItem } from '../types/app';
+import type {
+  AlertItem,
+  Customer,
+  InstallerCustomerDetail,
+  InstallerProjectDetail,
+  Project,
+  TabItem,
+} from '../types/app';
 
 export const installerTabs: TabItem[] = [
   { label: '工作台', to: '/installer/workbench', icon: 'space_dashboard' },
@@ -139,3 +146,97 @@ export const installerCustomers: Customer[] = [
     accent: 'secondary',
   },
 ];
+
+export const installerCustomerDetails: Record<string, InstallerCustomerDetail> = {
+  'c-88': {
+    id: 'c-88',
+    name: '王先生',
+    statusLabel: '已授权',
+    phone: '+86 138 0013 8000',
+    email: 'mr.wang@example.com',
+    address: '123 Prosperity Blvd, District 4, Shanghai',
+    quickActions: [
+      { id: 'new-project', label: '新建项目', icon: 'add', tone: 'primary' },
+      { id: 'call', label: '拨打电话', icon: 'call', tone: 'secondary' },
+      { id: 'invite', label: '发送邀请', icon: 'send', tone: 'tertiary' },
+      { id: 'note', label: '添加备注', icon: 'note_add', tone: 'muted' },
+      { id: 'history', label: '查看维护记录', icon: 'history', tone: 'muted' },
+    ],
+    projectsSummary: '2 活跃',
+    projects: [
+      {
+        id: 'wang-backyard',
+        name: '王先生后院',
+        subtitle: 'Premium Landscape Automation',
+        status: '在线',
+        statusTone: 'active',
+        deviceId: 'HW-8829A',
+        deviceCount: '12 节点',
+        lastSync: '2分钟前',
+      },
+      {
+        id: 'wang-front-lighting',
+        name: '王先生前院灯光',
+        subtitle: 'Architectural Lighting Zone',
+        status: '空闲',
+        statusTone: 'idle',
+        deviceId: 'LT-4412C',
+        deviceCount: '8 节点',
+        lastSync: '1小时前',
+      },
+    ],
+  },
+};
+
+export const installerProjectDetails: Record<string, InstallerProjectDetail> = {
+  'p-101': {
+    id: 'p-101',
+    name: '王先生后院',
+    status: '安装中',
+    customerName: '王先生',
+    address: '虹桥路 123 号',
+    heroImage:
+      'https://lh3.googleusercontent.com/aida-public/AB6AXuDZQK438FrmFxp4TbWV7GGXsPveWn06FN-_nj7TEBs-zDFeiFNPdVOXfTrTnWOlGUhpsr93J1LWT96gtad8isVVSMGI-6kXL_W81bWd3RpzadPc1PrIPf9h4tpqwm3z59KMGuOhkrY2Q48ramyr2CJBlApFNzgZn744a8Jsy4aHaD7YVgsbd56HU8IRt2mayGgeoxKqo2TvaiycEYmq9pe1VocGk5TiI_r-c5PbGJwqPfIsrAGXIeQXv9vTxJwRV1NvakLLS4wUZSI',
+    totalDevices: 12,
+    onlineDevices: 11,
+    activeAlerts: 1,
+    deliveryStatus: '待交付',
+    authorizationLabel: '安装商维护中',
+    quickActions: [
+      { id: 'add-device', label: '添加设备', icon: 'add_circle', tone: 'primary' },
+      { id: 'channel-test', label: '通道测试', icon: 'settings_input_component', tone: 'secondary' },
+      { id: 'scene-config', label: '配置场景', icon: 'auto_awesome', tone: 'tertiary' },
+      { id: 'deliver-project', label: '交付项目', icon: 'assignment_turned_in', tone: 'solid' },
+    ],
+    modules: [
+      { id: 'overview', label: '概览', icon: 'dashboard', tone: 'default' },
+      { id: 'zones', label: '区域', icon: 'grid_view', tone: 'default' },
+      { id: 'devices', label: '设备', icon: 'router', tone: 'default' },
+      { id: 'scenes', label: '场景', icon: 'palette', tone: 'default' },
+      { id: 'plans', label: '计划', icon: 'schedule', tone: 'default' },
+      { id: 'automation', label: '自动化/保护', icon: 'shield_with_heart', tone: 'default' },
+      { id: 'map', label: '点位图', icon: 'map', tone: 'default' },
+      { id: 'alerts', label: '告警', icon: 'notifications_active', tone: 'danger' },
+      { id: 'maintenance', label: '维护', icon: 'build', tone: 'default' },
+      { id: 'delivery', label: '交付', icon: 'fact_check', tone: 'default' },
+    ],
+    recentAlerts: [
+      {
+        id: 'pond-low-water',
+        title: '池塘水位低',
+        time: '14:22',
+        message: '区域 3：中心池塘传感器报告深度 < 15%。',
+        icon: 'water_drop',
+        tone: 'danger',
+      },
+      {
+        id: 'gateway-signal',
+        title: '网关信号弱',
+        time: '12:05',
+        message: '主网关 G-04：信号强度 -85dBm。建议安装中继器。',
+        icon: 'signal_cellular_alt_1_bar',
+        tone: 'neutral',
+      },
+    ],
+  },
+};

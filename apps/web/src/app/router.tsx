@@ -11,8 +11,12 @@ import { InstallerWorkbenchPage } from '../pages/installer/InstallerWorkbenchPag
 import { OwnerDeviceDetailPage } from '../pages/owner/OwnerDeviceDetailPage';
 import { OwnerDevicesPage } from '../pages/owner/OwnerDevicesPage';
 import { OwnerHomePage } from '../pages/owner/OwnerHomePage';
+import { OwnerLightPlanCreatePage } from '../pages/owner/OwnerLightPlanCreatePage';
+import { OwnerOutdoorPlanCreatePage } from '../pages/owner/OwnerOutdoorPlanCreatePage';
+import { OwnerWaterPlanCreatePage } from '../pages/owner/OwnerWaterPlanCreatePage';
 import { OwnerSceneCreatePage } from '../pages/owner/OwnerSceneCreatePage';
 import { OwnerPlanDetailPage } from '../pages/owner/OwnerPlanDetailPage';
+import { OwnerPlanTypeSelectPage } from '../pages/owner/OwnerPlanTypeSelectPage';
 import { OwnerPlansPage } from '../pages/owner/OwnerPlansPage';
 import { OwnerProfilePage } from '../pages/owner/OwnerProfilePage';
 import { OwnerSceneDetailPage } from '../pages/owner/OwnerSceneDetailPage';
@@ -34,6 +38,10 @@ export function AppRoutes() {
         <Route path="devices" element={<OwnerDevicesPage />} />
         <Route path="devices/:deviceId" element={<OwnerDeviceDetailPage />} />
         <Route path="plans" element={<OwnerPlansPage />} />
+        <Route path="plans/create" element={<OwnerPlanTypeSelectPage />} />
+        <Route path="plans/create/light" element={<OwnerLightPlanCreatePage />} />
+        <Route path="plans/create/outdoor" element={<OwnerOutdoorPlanCreatePage />} />
+        <Route path="plans/create/water" element={<OwnerWaterPlanCreatePage />} />
         <Route path="plans/:planId" element={<OwnerPlanDetailPage />} />
         <Route path="profile" element={<OwnerProfilePage />} />
       </Route>
