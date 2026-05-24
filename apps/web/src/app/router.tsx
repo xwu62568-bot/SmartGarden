@@ -1,11 +1,21 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { InstallerAlertDetailPage } from '../pages/installer/InstallerAlertDetailPage';
+import { InstallerAddDevicePage } from '../pages/installer/InstallerAddDevicePage';
+import { InstallerAutomationRulesPage } from '../pages/installer/InstallerAutomationRulesPage';
 import { InstallerAlertsPage } from '../pages/installer/InstallerAlertsPage';
+import { InstallerChannelConfigPage } from '../pages/installer/InstallerChannelConfigPage';
+import { InstallerChannelTestPage } from '../pages/installer/InstallerChannelTestPage';
 import { InstallerCustomerDetailPage } from '../pages/installer/InstallerCustomerDetailPage';
 import { InstallerCustomersPage } from '../pages/installer/InstallerCustomersPage';
+import { InstallerProjectCreatePage } from '../pages/installer/InstallerProjectCreatePage';
+import { InstallerProjectDevicesPage } from '../pages/installer/InstallerProjectDevicesPage';
 import { InstallerProfilePage } from '../pages/installer/InstallerProfilePage';
 import { InstallerProjectDetailPage } from '../pages/installer/InstallerProjectDetailPage';
+import { InstallerProjectMapPage } from '../pages/installer/InstallerProjectMapPage';
+import { InstallerProjectPlansPage } from '../pages/installer/InstallerProjectPlansPage';
 import { InstallerProjectsPage } from '../pages/installer/InstallerProjectsPage';
+import { InstallerProjectScenesPage } from '../pages/installer/InstallerProjectScenesPage';
+import { InstallerProjectZonesPage } from '../pages/installer/InstallerProjectZonesPage';
 import { InstallerShell } from '../pages/installer/InstallerShell';
 import { InstallerWorkbenchPage } from '../pages/installer/InstallerWorkbenchPage';
 import { OwnerDeviceDetailPage } from '../pages/owner/OwnerDeviceDetailPage';
@@ -50,7 +60,17 @@ export function AppRoutes() {
         <Route index element={<Navigate to="workbench" replace />} />
         <Route path="workbench" element={<InstallerWorkbenchPage />} />
         <Route path="projects" element={<InstallerProjectsPage />} />
+        <Route path="projects/create" element={<InstallerProjectCreatePage />} />
+        <Route path="projects/:projectId/devices/add" element={<InstallerAddDevicePage />} />
+        <Route path="projects/:projectId/devices" element={<InstallerProjectDevicesPage />} />
+        <Route path="projects/:projectId/map" element={<InstallerProjectMapPage />} />
+        <Route path="projects/:projectId/automation" element={<InstallerAutomationRulesPage />} />
+        <Route path="projects/:projectId/channels" element={<InstallerChannelConfigPage />} />
+        <Route path="projects/:projectId/channel-test" element={<InstallerChannelTestPage />} />
+        <Route path="projects/:projectId/plans" element={<InstallerProjectPlansPage />} />
+        <Route path="projects/:projectId/scenes" element={<InstallerProjectScenesPage />} />
         <Route path="projects/:projectId" element={<InstallerProjectDetailPage />} />
+        <Route path="projects/:projectId/zones" element={<InstallerProjectZonesPage />} />
         <Route path="alerts" element={<InstallerAlertsPage />} />
         <Route path="alerts/:alertId" element={<InstallerAlertDetailPage />} />
         <Route path="customers" element={<InstallerCustomersPage />} />

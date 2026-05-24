@@ -89,28 +89,53 @@ export function InstallerProjectDetailPage() {
       </section>
 
       <section className="installer-project-detail-section">
-        <h2>快捷操作</h2>
-        <div className="installer-project-detail-action-row">
-          {detail.quickActions.map((action) => (
-            <button
-              key={action.id}
-              type="button"
-              className={`installer-project-detail-action-card installer-project-detail-action-card-${action.tone}`}
-            >
-              <span className="material-symbols-outlined">{action.icon}</span>
-              <span>{action.label}</span>
-            </button>
-          ))}
-        </div>
+          <h2>快捷操作</h2>
+          <div className="installer-project-detail-action-row">
+            {detail.quickActions.map((action) => (
+              <Link
+                key={action.id}
+                to={
+                  action.id === 'add-device'
+                    ? `/installer/projects/${detail.id}/devices/add`
+                    : action.id === 'channel-test'
+                      ? `/installer/projects/${detail.id}/channel-test`
+                      : '#'
+                }
+                state={
+                  action.id === 'channel-test'
+                    ? { backTo: `/installer/projects/${detail.id}` }
+                    : undefined
+                }
+                className={`installer-project-detail-action-card installer-project-detail-action-card-${action.tone}`}
+              >
+                <span className="material-symbols-outlined">{action.icon}</span>
+                <span>{action.label}</span>
+              </Link>
+            ))}
+          </div>
       </section>
 
       <section className="installer-project-detail-section">
         <h2>项目模块</h2>
         <div className="installer-project-detail-module-grid">
           {detail.modules.map((module) => (
-            <button
+            <Link
               key={module.id}
-              type="button"
+              to={
+                module.id === 'zones'
+                  ? `/installer/projects/${detail.id}/zones`
+                  : module.id === 'devices'
+                    ? `/installer/projects/${detail.id}/devices`
+                  : module.id === 'map'
+                    ? `/installer/projects/${detail.id}/map`
+                  : module.id === 'plans'
+                    ? `/installer/projects/${detail.id}/plans`
+                    : module.id === 'scenes'
+                      ? `/installer/projects/${detail.id}/scenes`
+                      : module.id === 'automation'
+                        ? `/installer/projects/${detail.id}/automation`
+                        : '#'
+              }
               className={`installer-project-detail-module-card installer-project-detail-module-card-${module.tone}`}
             >
               <span className="installer-project-detail-module-icon-wrap">
@@ -118,7 +143,7 @@ export function InstallerProjectDetailPage() {
                 {module.tone === 'danger' ? <span className="installer-project-detail-module-dot" aria-hidden="true" /> : null}
               </span>
               <span>{module.label}</span>
-            </button>
+            </Link>
           ))}
         </div>
       </section>

@@ -205,11 +205,9 @@ export const installerProjectDetails: Record<string, InstallerProjectDetail> = {
     quickActions: [
       { id: 'add-device', label: '添加设备', icon: 'add_circle', tone: 'primary' },
       { id: 'channel-test', label: '通道测试', icon: 'settings_input_component', tone: 'secondary' },
-      { id: 'scene-config', label: '配置场景', icon: 'auto_awesome', tone: 'tertiary' },
       { id: 'deliver-project', label: '交付项目', icon: 'assignment_turned_in', tone: 'solid' },
     ],
     modules: [
-      { id: 'overview', label: '概览', icon: 'dashboard', tone: 'default' },
       { id: 'zones', label: '区域', icon: 'grid_view', tone: 'default' },
       { id: 'devices', label: '设备', icon: 'router', tone: 'default' },
       { id: 'scenes', label: '场景', icon: 'palette', tone: 'default' },

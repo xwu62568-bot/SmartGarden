@@ -8,6 +8,16 @@ export function InstallerShell() {
   const location = useLocation();
   const isWorkbench = location.pathname === '/installer/workbench';
   const isProjectsView = location.pathname === '/installer/projects';
+  const isProjectCreate = location.pathname === '/installer/projects/create';
+  const isAddDevice = /\/installer\/projects\/[^/]+\/devices\/add$/.test(location.pathname);
+  const isProjectDevices = /\/installer\/projects\/[^/]+\/devices$/.test(location.pathname);
+  const isProjectMap = /\/installer\/projects\/[^/]+\/map$/.test(location.pathname);
+  const isAutomation = /\/installer\/projects\/[^/]+\/automation$/.test(location.pathname);
+  const isChannelConfig = /\/installer\/projects\/[^/]+\/channels$/.test(location.pathname);
+  const isChannelTest = /\/installer\/projects\/[^/]+\/channel-test$/.test(location.pathname);
+  const isProjectPlans = /\/installer\/projects\/[^/]+\/plans$/.test(location.pathname);
+  const isProjectScenes = /\/installer\/projects\/[^/]+\/scenes$/.test(location.pathname);
+  const isProjectZones = /\/installer\/projects\/[^/]+\/zones$/.test(location.pathname);
   const isProjectDetail = location.pathname.startsWith('/installer/projects/');
   const isAlertsView = location.pathname === '/installer/alerts';
   const isCustomersView = location.pathname === '/installer/customers';
@@ -18,6 +28,7 @@ export function InstallerShell() {
     <AppFrame
       header={
         isWorkbench || isProjectsView || isProjectDetail || isAlertsView || isCustomersView || isCustomerDetail || isProfileView
+        || isProjectCreate
           ? null
           : <TopBar title="安装商端" subtitle="项目、告警与客户的运营工作台" />
       }
@@ -26,6 +37,26 @@ export function InstallerShell() {
           ? 'page-scroll page-scroll-installer-workbench'
           : isProjectsView
             ? 'page-scroll page-scroll-installer-projects'
+            : isProjectCreate
+              ? 'page-scroll page-scroll-installer-project-create'
+              : isAddDevice
+                ? 'page-scroll page-scroll-installer-add-device'
+                : isProjectDevices
+                  ? 'page-scroll page-scroll-installer-project-devices'
+                  : isProjectMap
+                    ? 'page-scroll page-scroll-installer-project-map'
+                : isAutomation
+                  ? 'page-scroll page-scroll-installer-automation'
+                : isChannelConfig
+                  ? 'page-scroll page-scroll-installer-channel-config'
+                  : isChannelTest
+                    ? 'page-scroll page-scroll-installer-channel-test'
+                  : isProjectPlans
+                    ? 'page-scroll page-scroll-installer-project-plans'
+                    : isProjectScenes
+                      ? 'page-scroll page-scroll-installer-project-scenes'
+              : isProjectZones
+                ? 'page-scroll page-scroll-installer-project-zones'
             : isProjectDetail
               ? 'page-scroll page-scroll-installer-project-detail'
             : isAlertsView

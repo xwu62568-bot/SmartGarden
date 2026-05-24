@@ -104,6 +104,66 @@ button {
   padding: 0 20px 100px;
 }
 
+.page-scroll-installer-project-create {
+  padding: 0 0 120px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-add-device {
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.page-scroll-installer-project-devices {
+  padding: 0 0 36px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-project-map {
+  padding: 0 0 92px;
+  overflow: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-channel-config {
+  padding: 0 0 108px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-channel-test {
+  padding: 0 0 96px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-automation {
+  padding: 0 0 36px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-project-plans {
+  padding: 0 0 96px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-project-scenes {
+  padding: 0 0 96px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-project-zones {
+  padding: 0 0 36px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
 .page-scroll-installer-project-detail {
   padding: 0 0 36px;
   overflow-x: hidden;
@@ -1389,6 +1449,4474 @@ button {
   background: var(--primary);
   color: #fff;
   box-shadow: 0 18px 32px rgba(13, 99, 27, 0.28);
+}
+
+.installer-project-create-page {
+  position: relative;
+  min-height: 100%;
+  color: var(--text);
+}
+
+.installer-project-create-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.installer-project-create-glow {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(100px);
+  opacity: 1;
+}
+
+.installer-project-create-glow-primary {
+  top: 10%;
+  right: -5%;
+  width: 400px;
+  height: 400px;
+  background: rgba(13, 99, 27, 0.05);
+}
+
+.installer-project-create-glow-secondary {
+  left: -10%;
+  bottom: 20%;
+  width: 300px;
+  height: 300px;
+  background: rgba(0, 99, 154, 0.05);
+  filter: blur(80px);
+}
+
+.installer-project-create-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(249, 249, 255, 0.96);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-project-create-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.installer-project-create-back {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--primary);
+}
+
+.installer-project-create-topbar h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  color: #111c2d;
+}
+
+.installer-project-create-main {
+  position: relative;
+  z-index: 1;
+  padding: 24px 20px 32px;
+}
+
+.installer-project-create-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.installer-project-create-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-create-card-spaced {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-project-create-label {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-create-input-wrap,
+.installer-project-create-input-icon-wrap,
+.installer-project-create-inline-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.installer-project-create-input,
+.installer-project-create-textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  border-radius: 8px;
+  background: #f0f3ff;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.installer-project-create-input {
+  min-height: 52px;
+  padding: 14px 16px;
+}
+
+.installer-project-create-input::placeholder,
+.installer-project-create-textarea::placeholder {
+  color: rgba(64, 73, 61, 0.65);
+}
+
+.installer-project-create-input:focus,
+.installer-project-create-textarea:focus {
+  box-shadow: inset 0 0 0 2px rgba(13, 99, 27, 0.28);
+}
+
+.installer-project-create-input-with-icon {
+  padding-left: 48px;
+}
+
+.installer-project-create-input-icon-wrap > .material-symbols-outlined {
+  position: absolute;
+  left: 16px;
+  color: #707a6c;
+  font-size: 20px;
+}
+
+.installer-project-create-generate {
+  position: absolute;
+  right: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-create-generate .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.installer-project-create-action-grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.installer-project-create-soft-button {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  border: 0;
+  border-radius: 8px;
+  background: #d8e3fb;
+  color: var(--secondary);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-create-soft-button .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.installer-project-create-divider-block {
+  padding-top: 16px;
+  border-top: 1px solid rgba(191, 202, 186, 0.3);
+}
+
+.installer-project-create-inline-row {
+  gap: 8px;
+}
+
+.installer-project-create-input-muted {
+  flex: 1;
+  color: var(--text-muted);
+}
+
+.installer-project-create-inline-action {
+  flex: 0 0 auto;
+  border: 0;
+  padding: 4px 8px;
+  background: transparent;
+  color: var(--primary);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-create-help {
+  margin: 4px 0 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+  color: rgba(64, 73, 61, 0.7);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-project-create-help .material-symbols-outlined {
+  margin-top: 2px;
+  font-size: 16px;
+}
+
+.installer-project-create-timezone {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 8px;
+  background: #f0f3ff;
+}
+
+.installer-project-create-timezone > .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.installer-project-create-timezone > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.installer-project-create-timezone-meta {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.installer-project-create-timezone strong {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.installer-project-create-textarea {
+  min-height: 120px;
+  padding: 16px;
+  resize: none;
+}
+
+.installer-project-create-status-row {
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.installer-project-create-status-row > span {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-create-status-pill {
+  min-height: 32px;
+  padding: 4px 16px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(13, 99, 27, 0.1);
+}
+
+.installer-project-create-status-pill strong {
+  position: relative;
+  margin-left: 12px;
+  color: var(--primary);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-create-status-pill strong::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  transform: translateY(-50%);
+  animation: installer-project-create-pulse 2s infinite;
+}
+
+@keyframes installer-project-create-pulse {
+  0% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: translateY(-50%) scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+.installer-project-create-footer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 35;
+  width: min(100%, 430px);
+  transform: translateX(-50%);
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(249, 249, 255, 0.8);
+  border-top: 1px solid rgba(191, 202, 186, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.installer-project-create-submit {
+  width: 100%;
+  height: 56px;
+  border: 0;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+  box-shadow: 0 14px 28px rgba(13, 99, 27, 0.2);
+}
+
+.installer-project-create-home-indicator {
+  align-self: center;
+  width: 128px;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(17, 28, 45, 0.1);
+}
+
+.installer-add-device-page {
+  position: relative;
+  min-height: 100%;
+  background: #000;
+  color: #111c2d;
+}
+
+.installer-add-device-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(249, 249, 255, 0.9);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.installer-add-device-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.installer-add-device-icon-button {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--text);
+}
+
+.installer-add-device-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.installer-add-device-title-wrap h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-add-device-title-wrap span {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-add-device-scanner {
+  position: relative;
+  height: calc(100dvh - 64px);
+  overflow: hidden;
+  background: #000;
+}
+
+.installer-add-device-camera,
+.installer-add-device-camera img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.installer-add-device-camera img {
+  object-fit: cover;
+  opacity: 0.6;
+  filter: grayscale(20%);
+}
+
+.installer-add-device-overlay {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.installer-add-device-scan-window {
+  position: relative;
+  width: 256px;
+  height: 256px;
+  border: 2px solid #88d982;
+  border-radius: 12px;
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.5);
+}
+
+.installer-add-device-corner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-color: var(--primary);
+  border-style: solid;
+  border-width: 0;
+}
+
+.installer-add-device-corner.top-left {
+  top: 0;
+  left: 0;
+  border-top-width: 4px;
+  border-left-width: 4px;
+}
+
+.installer-add-device-corner.top-right {
+  top: 0;
+  right: 0;
+  border-top-width: 4px;
+  border-right-width: 4px;
+}
+
+.installer-add-device-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 4px;
+  border-left-width: 4px;
+}
+
+.installer-add-device-corner.bottom-right {
+  right: 0;
+  bottom: 0;
+  border-right-width: 4px;
+  border-bottom-width: 4px;
+}
+
+.installer-add-device-scan-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #a3f69c, transparent);
+  box-shadow: 0 0 15px rgba(136, 217, 130, 0.8);
+  animation: installer-add-device-scan 3s ease-in-out infinite;
+}
+
+@keyframes installer-add-device-scan {
+  0%,
+  100% {
+    top: 0%;
+  }
+
+  50% {
+    top: 100%;
+  }
+}
+
+.installer-add-device-prompt {
+  margin: 24px 0 0;
+  padding: 0 24px;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+}
+
+.installer-add-device-tools {
+  margin-top: 32px;
+  display: flex;
+  gap: 32px;
+}
+
+.installer-add-device-tool {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-add-device-tool-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.installer-add-device-tool-icon.active {
+  background: #a3f69c;
+  color: #002204;
+}
+
+.installer-add-device-alternative-bar {
+  position: absolute;
+  right: 0;
+  bottom: 128px;
+  left: 0;
+  z-index: 2;
+  padding: 32px 16px 0;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+}
+
+.installer-add-device-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 24px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-add-device-sheet {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 60;
+  transform: translateY(0);
+  transition: transform 0.5s ease-out;
+}
+
+.installer-add-device-sheet-collapsed {
+  transform: translateY(85%);
+}
+
+.installer-add-device-sheet-panel {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 24px 24px calc(16px + env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(191, 202, 186, 0.9);
+  border-top-left-radius: 32px;
+  border-top-right-radius: 32px;
+  background: #fff;
+  box-shadow: 0 -20px 40px rgba(17, 28, 45, 0.18);
+}
+
+.installer-add-device-sheet-handle {
+  width: 48px;
+  height: 6px;
+  margin: 0 auto 24px;
+  border-radius: 999px;
+  background: rgba(191, 202, 186, 0.9);
+}
+
+.installer-add-device-sheet-head {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.installer-add-device-device-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.installer-add-device-device-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-container);
+  color: #cbffc2;
+}
+
+.installer-add-device-device-summary h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.installer-add-device-device-summary p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-add-device-bindable-badge {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+}
+
+.installer-add-device-bindable-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: installer-project-zones-pulse 2s infinite;
+}
+
+.installer-add-device-bindable-badge span:last-child,
+.installer-add-device-tech-grid span,
+.installer-add-device-field span {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-add-device-tech-grid {
+  margin-bottom: 32px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  border-radius: 12px;
+  background: #e7eeff;
+}
+
+.installer-add-device-tech-grid span,
+.installer-add-device-field span {
+  display: block;
+  margin-bottom: 4px;
+  color: #707a6c;
+}
+
+.installer-add-device-tech-grid strong {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-add-device-form {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.installer-add-device-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.installer-add-device-select-wrap {
+  position: relative;
+}
+
+.installer-add-device-select-wrap select,
+.installer-add-device-field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(191, 202, 186, 0.9);
+  background: #f0f3ff;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 24px;
+  outline: 0;
+}
+
+.installer-add-device-select-wrap span {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  margin-bottom: 0;
+  transform: translateY(-50%);
+  color: #707a6c;
+  pointer-events: none;
+}
+
+.installer-add-device-submit {
+  width: 100%;
+  min-height: 56px;
+  border: 0;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--primary-container);
+  color: #cbffc2;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  box-shadow: 0 16px 32px rgba(17, 28, 45, 0.12);
+}
+
+@media (min-width: 768px) {
+  .installer-add-device-scan-window {
+    width: 320px;
+    height: 320px;
+  }
+}
+
+.installer-channel-config-page {
+  min-height: 100%;
+  background: #f9f9ff;
+  color: #111c2d;
+}
+
+.installer-channel-config-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9ff;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.installer-channel-config-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.installer-channel-config-icon-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--text-muted);
+  flex: 0 0 auto;
+}
+
+.installer-channel-config-icon-button .material-symbols-outlined:first-child {
+  color: var(--primary);
+}
+
+.installer-channel-config-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.installer-channel-config-title-wrap h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.installer-channel-config-subtitle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.installer-channel-config-subtitle span:first-child {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-channel-config-online-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 0 rgba(13, 99, 27, 0.4);
+  animation: installer-channel-config-pulse 2s infinite;
+}
+
+.installer-channel-config-subtitle strong {
+  color: var(--primary);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@keyframes installer-channel-config-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 99, 27, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(13, 99, 27, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 99, 27, 0);
+  }
+}
+
+.installer-channel-config-main {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-channel-config-head {
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-channel-config-head h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.installer-channel-config-head > span {
+  padding: 4px 8px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 999px;
+  background: var(--surface-container);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-channel-config-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.installer-channel-card {
+  position: relative;
+  padding: 16px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-channel-card-danger {
+  background: rgba(255, 218, 214, 0.1);
+  border-color: rgba(186, 26, 26, 0.3);
+  overflow: hidden;
+}
+
+.installer-channel-card-risk {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 8px;
+  border-bottom-left-radius: 12px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-channel-card-top {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-channel-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.installer-channel-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--primary-fixed);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.installer-channel-card-icon .material-symbols-outlined {
+  font-size: 28px;
+}
+
+.installer-channel-card-icon-danger {
+  background: var(--error-container);
+  color: var(--danger);
+}
+
+.installer-channel-code {
+  color: rgba(64, 73, 61, 0.7);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-channel-code.danger {
+  color: rgba(186, 26, 26, 0.7);
+}
+
+.installer-channel-card-top h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-channel-card-zone {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--surface-container);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-channel-card-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.installer-channel-row {
+  padding: 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-channel-row > span {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-channel-row-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
+}
+
+.installer-channel-row-value strong {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-channel-row-value .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.installer-channel-row-locked {
+  background: rgba(46, 125, 50, 0.1);
+  border-color: rgba(13, 99, 27, 0.2);
+}
+
+.installer-channel-row-locked > span {
+  color: #1f5c28;
+  font-weight: 600;
+}
+
+.installer-channel-row-danger {
+  border-color: rgba(186, 26, 26, 0.2);
+  background: rgba(255, 218, 214, 0.08);
+}
+
+.installer-channel-row-danger-lock {
+  border-color: rgba(186, 26, 26, 0.2);
+  background: rgba(186, 26, 26, 0.05);
+}
+
+.installer-channel-row-danger-lock > span {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.installer-channel-row-value.danger {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.installer-channel-reference-card {
+  margin-top: 16px;
+  overflow: hidden;
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  background: var(--surface-container-low);
+}
+
+.installer-channel-reference-head {
+  padding: 16px;
+  border-bottom: 1px solid var(--outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-channel-reference-head span:first-child {
+  color: var(--text);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-channel-reference-head span:last-child {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-channel-reference-visual {
+  position: relative;
+  height: 192px;
+  background: var(--surface-container-highest);
+}
+
+.installer-channel-reference-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.installer-channel-reference-action {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(13, 99, 27, 0.9);
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(13, 99, 27, 0.22);
+}
+
+.installer-channel-config-footer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 40;
+  width: min(100%, 430px);
+  transform: translateX(-50%);
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 16px;
+  background: rgba(249, 249, 255, 0.8);
+  border-top: 1px solid rgba(191, 202, 186, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-channel-config-primary,
+.installer-channel-config-secondary {
+  flex: 1;
+  min-height: 56px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.installer-channel-config-primary {
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(13, 99, 27, 0.2);
+}
+
+.installer-channel-config-secondary {
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+}
+
+@media (min-width: 768px) {
+  .installer-channel-config-main {
+    max-width: 960px;
+  }
+
+  .installer-channel-config-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .installer-channel-config-footer {
+    width: min(100%, 960px);
+  }
+}
+
+.installer-project-devices-page {
+  min-height: 100%;
+  background: #f9f9ff;
+  color: #111c2d;
+}
+
+.installer-project-devices-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  min-height: 64px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #f9f9ff;
+  border-bottom: 1px solid rgba(191, 202, 186, 0.45);
+}
+
+.installer-project-devices-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.installer-project-devices-back {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--text);
+  flex: 0 0 auto;
+}
+
+.installer-project-devices-title-wrap {
+  min-width: 0;
+}
+
+.installer-project-devices-title-wrap h1 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-devices-status-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--surface-container);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.installer-project-devices-title-wrap p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-project-devices-add {
+  flex: 0 0 auto;
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-devices-add .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.installer-project-devices-main {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 24px 16px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.installer-project-devices-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.installer-project-devices-stats > :last-child {
+  grid-column: 1 / -1;
+}
+
+.installer-project-devices-stat-card {
+  padding: 16px;
+  border: 1px solid rgba(191, 202, 186, 0.3);
+  border-radius: 12px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.installer-project-devices-stat-card-danger {
+  background: rgba(255, 218, 214, 0.2);
+  border-color: rgba(186, 26, 26, 0.2);
+}
+
+.installer-project-devices-stat-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.installer-project-devices-stat-head > span:first-child {
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-project-devices-stat-card-danger .installer-project-devices-stat-head > span:first-child,
+.installer-project-devices-stat-card-danger .installer-project-devices-stat-head .material-symbols-outlined {
+  color: var(--danger);
+}
+
+.installer-project-devices-stat-value {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.installer-project-devices-stat-value-online {
+  color: var(--primary);
+}
+
+.installer-project-devices-stat-value-offline {
+  color: var(--outline);
+}
+
+.installer-project-devices-stat-value-secondary {
+  color: var(--secondary);
+}
+
+.installer-project-devices-stat-value-danger {
+  color: var(--danger);
+}
+
+.installer-project-devices-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 0 0 rgba(13, 99, 27, 0.4);
+  animation: installer-project-devices-pulse 2s infinite;
+}
+
+@keyframes installer-project-devices-pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 99, 27, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(13, 99, 27, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 99, 27, 0);
+  }
+}
+
+.installer-project-devices-banner {
+  padding: 16px;
+  border: 1px solid rgba(81, 178, 254, 0.4);
+  border-radius: 12px;
+  background: rgba(81, 178, 254, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-devices-banner-copy {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.installer-project-devices-banner-copy .material-symbols-outlined,
+.installer-project-devices-banner button {
+  color: var(--secondary);
+}
+
+.installer-project-devices-banner-copy p {
+  margin: 0;
+  color: var(--on-secondary-container);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-devices-banner button {
+  border: 0;
+  background: transparent;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.installer-project-devices-progress {
+  padding: 20px;
+  border: 1px solid rgba(191, 202, 186, 0.3);
+  border-radius: 12px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-project-devices-progress h2 {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-project-devices-progress-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.installer-project-devices-progress-item {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(191, 202, 186, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.installer-project-devices-progress-item span:last-child {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-devices-progress-item-done {
+  background: var(--surface-container-low);
+}
+
+.installer-project-devices-progress-item-done .material-symbols-outlined {
+  color: var(--primary);
+  font-variation-settings: 'FILL' 1;
+}
+
+.installer-project-devices-progress-item-idle {
+  background: var(--surface-container-lowest);
+  border-color: rgba(0, 99, 154, 0.3);
+}
+
+.installer-project-devices-progress-item-idle .material-symbols-outlined {
+  color: var(--outline);
+}
+
+.installer-project-devices-progress-item-idle span:last-child,
+.installer-project-devices-progress-item-pending span:last-child {
+  color: var(--text-muted);
+}
+
+.installer-project-devices-progress-item-pending {
+  background: var(--surface-container-lowest);
+  border-color: rgba(0, 99, 154, 0.3);
+}
+
+.installer-project-devices-progress-item-pending .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.installer-project-devices-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-project-devices-chip-row,
+.installer-project-devices-zone-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.installer-project-devices-chip-row::-webkit-scrollbar,
+.installer-project-devices-zone-row::-webkit-scrollbar {
+  display: none;
+}
+
+.installer-project-devices-chip,
+.installer-project-devices-zone-chip {
+  flex: 0 0 auto;
+  border: 0;
+  white-space: nowrap;
+}
+
+.installer-project-devices-chip {
+  padding: 6px 20px;
+  border-radius: 999px;
+  background: var(--surface-container);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-devices-chip-active {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+.installer-project-devices-zone-row > span {
+  margin-right: 8px;
+  color: var(--outline);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex: 0 0 auto;
+}
+
+.installer-project-devices-zone-chip {
+  padding: 4px 12px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-project-devices-zone-chip-active {
+  background: rgba(13, 99, 27, 0.05);
+  color: var(--primary);
+}
+
+.installer-project-devices-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.installer-project-devices-card {
+  overflow: hidden;
+  border: 1px solid rgba(191, 202, 186, 0.3);
+  border-radius: 12px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+  display: flex;
+  flex-direction: column;
+}
+
+.installer-project-devices-card-danger {
+  border-width: 2px;
+  border-color: rgba(186, 26, 26, 0.3);
+}
+
+.installer-project-devices-card-offline {
+  border-color: rgba(186, 26, 26, 0.5);
+  box-shadow: 0 4px 10px rgba(17, 28, 45, 0.08);
+  filter: grayscale(0.2);
+}
+
+.installer-project-devices-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.installer-project-devices-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-devices-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.installer-project-devices-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-container);
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.installer-project-devices-card-icon-offline {
+  background: var(--surface-container-high);
+  color: var(--outline);
+}
+
+.installer-project-devices-card-title h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.installer-project-devices-card-title p {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-project-devices-card-status {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.installer-project-devices-card-status-offline {
+  background: rgba(112, 122, 108, 0.1);
+  color: var(--outline);
+}
+
+.installer-project-devices-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.installer-project-devices-detail-box {
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--surface-container-low);
+}
+
+.installer-project-devices-detail-box span,
+.installer-project-devices-reading > span {
+  display: block;
+  color: var(--outline);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.installer-project-devices-detail-box strong {
+  color: var(--text);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-project-devices-callout {
+  padding: 8px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.installer-project-devices-callout .material-symbols-outlined {
+  font-size: 16px;
+  flex: 0 0 auto;
+}
+
+.installer-project-devices-callout strong {
+  display: block;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.installer-project-devices-callout span:last-child {
+  display: block;
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.installer-project-devices-callout-primary {
+  background: rgba(13, 99, 27, 0.05);
+}
+
+.installer-project-devices-callout-primary .material-symbols-outlined {
+  color: var(--primary);
+}
+
+.installer-project-devices-callout-primary strong {
+  color: var(--on-primary-fixed-variant);
+  font-weight: 500;
+}
+
+.installer-project-devices-callout-danger {
+  background: rgba(255, 218, 214, 0.2);
+}
+
+.installer-project-devices-callout-danger .material-symbols-outlined,
+.installer-project-devices-callout-danger strong,
+.installer-project-devices-callout-danger span:last-child {
+  color: var(--danger);
+}
+
+.installer-project-devices-reading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.installer-project-devices-reading > div {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.installer-project-devices-reading strong {
+  color: var(--secondary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.installer-project-devices-reading em {
+  margin-bottom: 2px;
+  color: var(--primary);
+  font-size: 10px;
+  line-height: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.installer-project-devices-card-footer {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(191, 202, 186, 0.3);
+  background: var(--surface-container-lowest);
+  display: flex;
+  gap: 8px;
+}
+
+.installer-project-devices-action {
+  flex: 1;
+  min-height: 32px;
+  border: 0;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.installer-project-devices-action-primary {
+  background: rgba(13, 99, 27, 0.05);
+  color: var(--primary);
+}
+
+.installer-project-devices-action-solid {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-devices-action-secondary {
+  background: rgba(0, 99, 154, 0.05);
+  color: var(--secondary);
+}
+
+.installer-project-devices-action-muted {
+  background: var(--surface-container);
+  color: var(--text-muted);
+}
+
+.installer-project-devices-action-danger {
+  background: rgba(186, 26, 26, 0.05);
+  color: var(--danger);
+}
+
+@media (min-width: 768px) {
+  .installer-project-devices-main {
+    max-width: 960px;
+  }
+}
+
+.installer-project-map-page {
+  min-height: 100%;
+  background: #f9f9ff;
+  color: #111c2d;
+}
+
+.installer-project-map-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.45);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-map-topbar-main,
+.installer-project-map-topbar-actions {
+  display: flex;
+  align-items: center;
+}
+
+.installer-project-map-topbar-main {
+  gap: 12px;
+  min-width: 0;
+}
+
+.installer-project-map-topbar-actions {
+  gap: 8px;
+}
+
+.installer-project-map-icon-button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background: transparent;
+  flex: 0 0 auto;
+}
+
+.installer-project-map-topbar-actions .installer-project-map-icon-button {
+  background: var(--surface-container);
+  color: var(--secondary);
+}
+
+.installer-project-map-title-wrap {
+  min-width: 0;
+}
+
+.installer-project-map-title-wrap h1 {
+  margin: 0;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-map-title-wrap p {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-project-map-canvas {
+  position: relative;
+  height: calc(100vh - 14rem);
+  min-height: 440px;
+  background: var(--surface-container-highest);
+  overflow: hidden;
+}
+
+.installer-project-map-background,
+.installer-project-map-background img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.installer-project-map-background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.installer-project-map-background img {
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.9;
+  transform: none;
+}
+
+.installer-project-map-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.installer-project-map-float-button {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 12px 24px rgba(17, 28, 45, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.installer-project-map-float-button.primary {
+  margin-top: 8px;
+  color: var(--primary);
+}
+
+.installer-project-map-pin,
+.installer-project-map-pin-selected {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.installer-project-map-pin {
+  z-index: 20;
+}
+
+.installer-project-map-pin-selected {
+  z-index: 40;
+}
+
+.installer-project-map-pin-badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 12px 24px rgba(17, 28, 45, 0.2);
+}
+
+.installer-project-map-pin-badge .material-symbols-outlined {
+  font-variation-settings: 'FILL' 1;
+}
+
+.installer-project-map-pin-badge-light {
+  background: #f3c53f;
+}
+
+.installer-project-map-pin-badge-sensor {
+  background: #14b8a6;
+}
+
+.installer-project-map-pin-badge-water {
+  background: var(--secondary);
+}
+
+.installer-project-map-pin-badge-gateway {
+  background: var(--outline);
+}
+
+.installer-project-map-pin-badge.active {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+  box-shadow: 0 0 8px rgba(13, 99, 27, 0.6), 0 18px 32px rgba(17, 28, 45, 0.22);
+  position: relative;
+}
+
+.installer-project-map-pin-badge.active::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 999px;
+  background: rgba(13, 99, 27, 0.2);
+  z-index: -1;
+}
+
+.installer-project-map-pin-badge.active .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.installer-project-map-pin-label,
+.installer-project-map-selected-tag {
+  margin-top: 4px;
+  border-radius: 999px;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.installer-project-map-pin-label {
+  padding: 2px 8px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.installer-project-map-selected-tag {
+  padding: 4px 12px;
+  color: #fff;
+  background: var(--primary);
+}
+
+.installer-project-map-popup {
+  position: relative;
+  width: 192px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 24px 40px rgba(17, 28, 45, 0.18);
+}
+
+.installer-project-map-popup-head {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.installer-project-map-popup-head > span {
+  color: var(--primary);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-project-map-popup-head button {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0;
+}
+
+.installer-project-map-popup h2 {
+  margin: 0;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.installer-project-map-popup p {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-project-map-popup-footer {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--outline-variant);
+}
+
+.installer-project-map-popup-footer button {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--primary);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.installer-project-map-popup-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background: var(--surface);
+  border-right: 1px solid var(--outline-variant);
+  border-bottom: 1px solid var(--outline-variant);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.installer-project-map-filter-bar {
+  height: 64px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  background: var(--surface-container-low);
+  border-top: 1px solid var(--outline-variant);
+}
+
+.installer-project-map-filter-row {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.installer-project-map-filter-row::-webkit-scrollbar {
+  display: none;
+}
+
+.installer-project-map-filter-chip {
+  flex: 0 0 auto;
+  padding: 8px 20px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-map-filter-chip-active {
+  border-color: transparent;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(13, 99, 27, 0.2);
+  font-weight: 700;
+}
+
+.installer-project-map-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  height: 96px;
+  padding: 0 20px calc(env(safe-area-inset-bottom) + 16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(249, 249, 255, 0.8);
+  border-top: 1px solid rgba(191, 202, 186, 0.3);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.installer-project-map-secondary-action,
+.installer-project-map-primary-action {
+  flex: 1;
+  max-width: 200px;
+  height: 56px;
+  border: 0;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.installer-project-map-secondary-action {
+  background: var(--secondary-fixed);
+  color: var(--on-secondary-container);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-map-primary-action {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(13, 99, 27, 0.2);
+}
+
+.installer-automation-page {
+  min-height: 100%;
+  background: #f9f9ff;
+  color: #111c2d;
+}
+
+.installer-automation-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  min-height: 64px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: rgba(249, 249, 255, 0.92);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.installer-automation-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.installer-automation-back {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.installer-automation-topbar-main p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-automation-topbar-main h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-automation-create-button {
+  flex: 0 0 auto;
+  min-height: 40px;
+  border: 0;
+  border-radius: 10px;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  box-shadow: 0 10px 20px rgba(13, 99, 27, 0.14);
+}
+
+.installer-automation-create-button .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.installer-automation-main {
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 24px 20px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.installer-automation-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.installer-automation-intro h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.installer-automation-intro p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-automation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.installer-automation-rule-card {
+  position: relative;
+  overflow: hidden;
+  padding: 16px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 16px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-automation-rule-rail {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+}
+
+.installer-automation-rule-rail-danger {
+  background: var(--danger);
+}
+
+.installer-automation-rule-rail-secondary {
+  background: var(--secondary);
+}
+
+.installer-automation-rule-rail-tertiary {
+  background: var(--tertiary);
+}
+
+.installer-automation-rule-head {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-automation-rule-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.installer-automation-rule-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.installer-automation-rule-icon .material-symbols-outlined {
+  display: block;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.installer-automation-rule-icon-danger {
+  background: var(--error-container);
+  color: var(--danger);
+}
+
+.installer-automation-rule-icon-secondary {
+  background: var(--secondary-fixed);
+  color: var(--secondary);
+}
+
+.installer-automation-rule-icon-tertiary {
+  background: var(--tertiary-container);
+  color: var(--tertiary);
+}
+
+.installer-automation-rule-title h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.installer-automation-switch {
+  width: 44px;
+  height: 24px;
+  padding: 2px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--outline-variant);
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.installer-automation-switch span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 160ms ease;
+}
+
+.installer-automation-switch.active {
+  background: var(--primary);
+}
+
+.installer-automation-switch.active span {
+  transform: translateX(20px);
+}
+
+.installer-automation-rule-condition,
+.installer-automation-rule-action {
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.installer-automation-rule-condition {
+  background: var(--surface-container);
+}
+
+.installer-automation-rule-action-danger {
+  background: var(--error-container);
+}
+
+.installer-automation-rule-action-secondary {
+  background: var(--secondary-fixed);
+}
+
+.installer-automation-rule-action-tertiary {
+  background: var(--tertiary-container);
+}
+
+.installer-automation-rule-action-muted {
+  background: var(--surface-variant);
+}
+
+.installer-automation-rule-condition > span,
+.installer-automation-rule-action > span {
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-automation-rule-copy {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 22px;
+}
+
+.installer-automation-rule-copy strong {
+  font-weight: 700;
+}
+
+.installer-automation-rule-copy strong.danger {
+  color: var(--danger);
+}
+
+.installer-automation-rule-copy strong.secondary {
+  color: var(--secondary);
+}
+
+.installer-automation-rule-copy strong.tertiary {
+  color: var(--tertiary);
+}
+
+.installer-automation-rule-arrow {
+  padding: 8px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+}
+
+.installer-automation-rule-arrow .material-symbols-outlined {
+  font-size: 20px;
+}
+
+@media (min-width: 768px) {
+  .installer-automation-main {
+    max-width: 960px;
+  }
+}
+
+.installer-project-plans-page {
+  position: relative;
+  min-height: 100%;
+  background: #f9f9ff;
+  color: #111c2d;
+}
+
+.installer-project-plans-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9ff;
+  border-bottom: 1px solid var(--outline-variant);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-plans-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.installer-project-plans-back {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.installer-project-plans-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.installer-project-plans-title-wrap h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-plans-title-wrap span {
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-project-plans-add {
+  border: 0;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-plans-main {
+  position: relative;
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 16px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.installer-project-plans-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 8px 0;
+  scrollbar-width: none;
+}
+
+.installer-project-plans-tabs::-webkit-scrollbar,
+.installer-project-plans-template-row::-webkit-scrollbar {
+  display: none;
+}
+
+.installer-project-plans-tab {
+  flex: 0 0 auto;
+  border: 0;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: var(--surface-container-high);
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-plans-tab.active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-plans-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-project-plans-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-plans-section-head h2,
+.installer-project-plans-list-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-plans-section-head h2 .material-symbols-outlined {
+  color: var(--primary);
+}
+
+.installer-project-plans-section-head button {
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.installer-project-plans-template-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+}
+
+.installer-project-plans-template-card {
+  min-width: 260px;
+  padding: 16px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+}
+
+.installer-project-plans-template-head {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.installer-project-plans-template-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.installer-project-plans-template-icon-primary {
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+}
+
+.installer-project-plans-template-icon-secondary {
+  background: rgba(0, 99, 154, 0.1);
+  color: var(--secondary);
+}
+
+.installer-project-plans-template-icon-tertiary {
+  background: rgba(64, 90, 101, 0.1);
+  color: var(--tertiary);
+}
+
+.installer-project-plans-template-head h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.installer-project-plans-template-head p {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.installer-project-plans-template-apply {
+  width: 100%;
+  min-height: 36px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-plans-template-apply.applied {
+  background: var(--primary);
+  color: #fff;
+}
+
+.installer-project-plans-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-project-plans-schedule-card {
+  padding: 16px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-project-plans-schedule-card.locked {
+  opacity: 0.8;
+}
+
+.installer-project-plans-schedule-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-plans-schedule-main {
+  display: flex;
+  gap: 16px;
+  min-width: 0;
+}
+
+.installer-project-plans-schedule-icon {
+  margin-top: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.installer-project-plans-schedule-icon-primary {
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+}
+
+.installer-project-plans-schedule-icon-secondary {
+  background: rgba(0, 99, 154, 0.1);
+  color: var(--secondary);
+}
+
+.installer-project-plans-schedule-icon-tertiary {
+  background: rgba(64, 90, 101, 0.1);
+  color: var(--tertiary);
+}
+
+.installer-project-plans-schedule-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.installer-project-plans-schedule-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.installer-project-plans-schedule-title-row h3 {
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.installer-project-plans-type-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.installer-project-plans-type-badge-primary {
+  background: rgba(13, 99, 27, 0.1);
+  border-color: rgba(13, 99, 27, 0.2);
+  color: var(--primary);
+}
+
+.installer-project-plans-type-badge-secondary {
+  background: rgba(0, 99, 154, 0.1);
+  border-color: rgba(0, 99, 154, 0.2);
+  color: var(--secondary);
+}
+
+.installer-project-plans-type-badge-tertiary {
+  background: rgba(64, 90, 101, 0.1);
+  border-color: rgba(64, 90, 101, 0.2);
+  color: var(--tertiary);
+}
+
+.installer-project-plans-schedule-copy p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-project-plans-schedule-copy p .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.installer-project-plans-switch,
+.installer-project-plans-owner-switch {
+  width: 44px;
+  height: 24px;
+  padding: 2px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--outline-variant);
+  display: inline-flex;
+  align-items: center;
+}
+
+.installer-project-plans-owner-switch {
+  width: 40px;
+  height: 20px;
+}
+
+.installer-project-plans-switch span,
+.installer-project-plans-owner-switch span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 160ms ease;
+}
+
+.installer-project-plans-owner-switch span {
+  width: 16px;
+  height: 16px;
+}
+
+.installer-project-plans-switch.active,
+.installer-project-plans-owner-switch.active {
+  background: var(--primary);
+}
+
+.installer-project-plans-owner-switch.active {
+  background: var(--secondary);
+}
+
+.installer-project-plans-switch.active span,
+.installer-project-plans-owner-switch.active span {
+  transform: translateX(20px);
+}
+
+.installer-project-plans-owner-switch.active span {
+  transform: translateX(20px);
+}
+
+.installer-project-plans-owner-switch.disabled {
+  background: rgba(191, 202, 186, 0.3);
+}
+
+.installer-project-plans-owner-switch.disabled span {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.installer-project-plans-owner-row {
+  padding-top: 8px;
+  border-top: 1px solid var(--outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-plans-owner-row > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-plans-owner-row.locked {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+
+.installer-project-plans-glow {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(64px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.installer-project-plans-glow-primary {
+  right: 0;
+  bottom: 0;
+  width: 256px;
+  height: 256px;
+  background: rgba(13, 99, 27, 0.05);
+}
+
+.installer-project-plans-glow-secondary {
+  left: 0;
+  top: 80px;
+  width: 192px;
+  height: 192px;
+  background: rgba(0, 99, 154, 0.05);
+}
+
+@media (min-width: 768px) {
+  .installer-project-plans-main {
+    max-width: 960px;
+  }
+}
+
+.installer-project-scenes-page {
+  min-height: 100%;
+  background: #f9f9ff;
+  color: #111c2d;
+}
+
+.installer-project-scenes-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(249, 249, 255, 0.9);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.3);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.installer-project-scenes-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.installer-project-scenes-icon-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--primary);
+}
+
+.installer-project-scenes-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.installer-project-scenes-title-wrap h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-scenes-title-wrap span {
+  color: rgba(64, 73, 61, 0.7);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-project-scenes-main {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px 16px 24px;
+}
+
+.installer-project-scenes-hero {
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.installer-project-scenes-hero h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+
+.installer-project-scenes-hero p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-project-scenes-add-button {
+  flex: 0 0 auto;
+  border: 0;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  box-shadow: 0 16px 32px rgba(13, 99, 27, 0.18);
+}
+
+.installer-project-scenes-section {
+  margin-bottom: 32px;
+}
+
+.installer-project-scenes-section-head,
+.installer-project-scenes-list-title {
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-scenes-section-head h3,
+.installer-project-scenes-list-title {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-scenes-section-head h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.installer-project-scenes-section-head h3 .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.installer-project-scenes-section-head > span {
+  color: var(--secondary);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-scenes-template-row {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 0 16px 16px;
+  margin: 0 -16px;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.installer-project-scenes-template-row::-webkit-scrollbar {
+  display: none;
+}
+
+.installer-project-scenes-template-card {
+  min-width: 280px;
+  padding: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(17, 28, 45, 0.06);
+  display: flex;
+  flex-direction: column;
+  scroll-snap-align: start;
+}
+
+.installer-project-scenes-template-top {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.installer-project-scenes-template-top > span {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.installer-project-scenes-template-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.installer-project-scenes-template-icon-primary {
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+}
+
+.installer-project-scenes-template-icon-secondary {
+  background: rgba(0, 99, 154, 0.1);
+  color: var(--secondary);
+}
+
+.installer-project-scenes-template-icon-tertiary {
+  background: rgba(88, 114, 126, 0.1);
+  color: var(--tertiary-container);
+}
+
+.installer-project-scenes-template-card p {
+  margin: 0 0 16px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+  flex-grow: 1;
+}
+
+.installer-project-scenes-suggestion-box {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--surface-container-low);
+}
+
+.installer-project-scenes-suggestion-box > div:first-child {
+  margin-bottom: 8px;
+  color: rgba(64, 73, 61, 0.8);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-project-scenes-suggestion-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.installer-project-scenes-suggestion-tags span {
+  padding: 4px 8px;
+  border: 1px solid rgba(191, 202, 186, 0.3);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.installer-project-scenes-create-button {
+  width: 100%;
+  min-height: 36px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--secondary);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-scenes-list-title {
+  justify-content: flex-start;
+}
+
+.installer-project-scenes-list-title .material-symbols-outlined {
+  color: var(--primary);
+}
+
+.installer-project-scenes-card-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-project-scenes-card {
+  padding: 24px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(17, 28, 45, 0.05);
+}
+
+.installer-project-scenes-card.muted {
+  opacity: 0.8;
+}
+
+.installer-project-scenes-card-head {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-scenes-card-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.installer-project-scenes-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.installer-project-scenes-card-icon .material-symbols-outlined {
+  font-size: 30px;
+}
+
+.installer-project-scenes-card-icon-primary {
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+}
+
+.installer-project-scenes-card-icon-secondary {
+  background: rgba(0, 99, 154, 0.1);
+  color: var(--secondary);
+}
+
+.installer-project-scenes-card h4 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.installer-project-scenes-card h4 .installer-project-scenes-status-badge {
+  margin-left: 8px;
+}
+
+.installer-project-scenes-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-project-scenes-edit-button {
+  border: 0;
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.installer-project-scenes-status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: #f1f5f9;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 10px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.installer-project-scenes-status-badge.active {
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+}
+
+.installer-project-scenes-device-grid {
+  margin-bottom: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.installer-project-scenes-device-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-scenes-device-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+}
+
+.installer-project-scenes-device-dot.active {
+  background: var(--primary);
+}
+
+.installer-project-scenes-permission-row {
+  padding-top: 16px;
+  border-top: 1px solid rgba(226, 232, 240, 0.7);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.installer-project-scenes-toggle-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.installer-project-scenes-toggle-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.installer-project-scenes-switch {
+  width: 44px;
+  height: 24px;
+  padding: 2px;
+  border: 0;
+  border-radius: 999px;
+  background: #e2e8f0;
+  display: inline-flex;
+  align-items: center;
+}
+
+.installer-project-scenes-switch span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 160ms ease;
+}
+
+.installer-project-scenes-switch.active {
+  background: var(--primary);
+}
+
+.installer-project-scenes-switch.active span {
+  transform: translateX(20px);
+}
+
+.installer-project-scenes-badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.installer-project-scenes-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--surface-container);
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.installer-project-scenes-meta-badge.editable {
+  background: rgba(46, 125, 50, 0.1);
+  color: var(--primary);
+}
+
+.installer-project-scenes-meta-badge .material-symbols-outlined {
+  font-size: 14px;
+}
+
+.installer-project-scenes-health-card {
+  position: relative;
+  margin-bottom: 48px;
+  padding: 24px;
+  border-radius: 24px;
+  background: #111c2d;
+  color: #fff;
+  overflow: hidden;
+}
+
+.installer-project-scenes-health-head {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.installer-project-scenes-health-head h4 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.installer-project-scenes-health-head .material-symbols-outlined {
+  opacity: 0.6;
+}
+
+.installer-project-scenes-health-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.installer-project-scenes-health-label {
+  margin-bottom: 4px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.installer-project-scenes-health-value {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.installer-project-scenes-health-track {
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+}
+
+.installer-project-scenes-health-fill {
+  height: 100%;
+}
+
+.installer-project-scenes-health-fill-primary-fixed {
+  background: var(--primary-fixed);
+}
+
+.installer-project-scenes-health-fill-secondary-fixed-dim {
+  background: var(--secondary-fixed-dim);
+}
+
+.installer-project-scenes-health-fill-error {
+  background: var(--danger);
+}
+
+.installer-project-scenes-health-glow {
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+  background: rgba(13, 99, 27, 0.2);
+  filter: blur(80px);
+}
+
+.installer-project-scenes-health-mesh {
+  position: absolute;
+  inset: 0;
+  opacity: 0.1;
+  background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+@media (min-width: 768px) {
+  .installer-project-scenes-main {
+    max-width: 896px;
+  }
+}
+
+.installer-channel-test-page {
+  min-height: 100%;
+  background: #f9f9ff;
+  color: #111c2d;
+}
+
+.installer-channel-test-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #f9f9ff;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.installer-channel-test-topbar-main,
+.installer-channel-test-topbar > div,
+.installer-channel-test-topbar {
+  display: flex;
+  align-items: center;
+}
+
+.installer-channel-test-topbar {
+  justify-content: space-between;
+  height: 64px;
+  padding: 0 20px;
+}
+
+.installer-channel-test-topbar-main {
+  gap: 12px;
+  min-width: 0;
+}
+
+.installer-channel-test-icon-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  color: var(--primary);
+}
+
+.installer-channel-test-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.installer-channel-test-title-wrap h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-channel-test-chip-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.installer-channel-test-chip-row span {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--surface-container-high);
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-channel-test-warning {
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--danger);
+  color: #fff;
+  animation: installer-channel-test-warning-pulse 2s infinite;
+}
+
+@keyframes installer-channel-test-warning-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
+}
+
+.installer-channel-test-warning p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-channel-test-main {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-channel-test-meta {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.installer-channel-test-meta p {
+  margin: 0;
+  color: rgba(64, 73, 61, 0.7);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.installer-channel-test-connection-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.installer-channel-test-connection-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: installer-project-zones-pulse 2s infinite;
+}
+
+.installer-channel-test-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+.installer-channel-test-card {
+  padding: 16px;
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  background: var(--surface-container-lowest);
+  box-shadow: 0 1px 2px rgba(17, 28, 45, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-channel-test-card-active {
+  position: relative;
+  border: 2px solid var(--secondary);
+  background: rgba(81, 178, 254, 0.2);
+  box-shadow: 0 10px 20px rgba(0, 99, 154, 0.12);
+  overflow: hidden;
+}
+
+.installer-channel-test-live-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 0 6px rgba(0, 99, 154, 0.2);
+}
+
+.installer-channel-test-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-channel-test-card-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.installer-channel-test-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--surface-container);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.installer-channel-test-card-icon.active {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.installer-channel-test-card-title p {
+  margin: 0;
+  color: var(--secondary);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.installer-channel-test-card-title h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-channel-test-status-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.installer-channel-test-status-badge {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--surface-container);
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.installer-channel-test-status-badge.running {
+  background: var(--secondary);
+  color: #fff;
+}
+
+.installer-channel-test-status-wrap strong {
+  color: var(--secondary);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.installer-channel-test-card-foot {
+  padding-top: 12px;
+  border-top: 1px dashed var(--outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-channel-test-card-foot.active {
+  border-top-color: rgba(0, 99, 154, 0.3);
+}
+
+.installer-channel-test-state {
+  display: flex;
+  flex-direction: column;
+}
+
+.installer-channel-test-state > span {
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.installer-channel-test-state strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-channel-test-state strong.running {
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.installer-channel-test-state strong.running .material-symbols-outlined {
+  animation: installer-channel-test-spin 1s linear infinite;
+}
+
+@keyframes installer-channel-test-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.installer-channel-test-state strong.success {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.installer-channel-test-state strong.error {
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.installer-channel-test-state strong.muted {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.installer-channel-test-action {
+  min-height: 40px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.installer-channel-test-action-primary {
+  border: 0;
+  background: var(--secondary);
+  color: #fff;
+}
+
+.installer-channel-test-action-danger {
+  border: 0;
+  background: var(--danger);
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(191, 60, 54, 0.2);
+}
+
+.installer-channel-test-action-outlined {
+  border: 1px solid var(--secondary);
+  background: rgba(81, 178, 254, 0.1);
+  color: var(--secondary);
+}
+
+.installer-channel-test-telemetry-card {
+  padding: 16px;
+  border: 1px solid rgba(191, 202, 186, 0.5);
+  border-radius: 12px;
+  background: var(--surface-container-high);
+}
+
+.installer-channel-test-telemetry-card h4 {
+  margin: 0 0 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.installer-channel-test-telemetry-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.installer-channel-test-telemetry-grid span {
+  display: block;
+  color: var(--text-muted);
+  font-size: 10px;
+  line-height: 16px;
+}
+
+.installer-channel-test-telemetry-grid strong {
+  color: var(--primary);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.installer-channel-test-footer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 50;
+  box-sizing: border-box;
+  width: min(100vw, 430px);
+  transform: translateX(-50%);
+  padding: 16px 16px calc(16px + env(safe-area-inset-bottom));
+  display: flex;
+  gap: 12px;
+  background: rgba(216, 227, 251, 0.95);
+  border-top: 1px solid var(--outline-variant);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-channel-test-done,
+.installer-channel-test-save {
+  min-width: 0;
+  min-height: 56px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.installer-channel-test-done {
+  flex: 1;
+  border: 1px solid rgba(0, 99, 154, 0.2);
+  background: var(--surface-container-low);
+  color: var(--secondary);
+}
+
+.installer-channel-test-save {
+  flex: 1.5;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(13, 99, 27, 0.18);
+}
+
+@media (min-width: 768px) {
+  .installer-channel-test-main {
+    max-width: 960px;
+  }
+
+  .installer-channel-test-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .installer-channel-test-footer {
+    width: min(100vw, 430px);
+  }
+}
+
+.installer-project-zones-page {
+  min-height: 100%;
+  color: #111c2d;
+}
+
+.installer-project-zones-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f9f9ff;
+  border-bottom: 1px solid rgba(191, 202, 186, 0.85);
+}
+
+.installer-project-zones-topbar-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.installer-project-zones-back {
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex: 0 0 auto;
+}
+
+.installer-project-zones-title-wrap {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.installer-project-zones-title-wrap h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.installer-project-zones-title-wrap span {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.installer-project-zones-add {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-container);
+  color: #cbffc2;
+  flex: 0 0 auto;
+}
+
+.installer-project-zones-main {
+  padding: 12px 12px 24px;
+}
+
+.installer-project-zones-overview {
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #f0f3ff;
+  border: 1px solid rgba(191, 202, 186, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.installer-project-zones-overview-main {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.installer-project-zones-overview-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.installer-project-zones-overview h2,
+.installer-project-zones-live-section h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-zones-overview p {
+  margin: 0;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-project-zones-sync {
+  display: none;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-zones-sync-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  animation: installer-project-zones-pulse 2s infinite;
+}
+
+@keyframes installer-project-zones-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+}
+
+.installer-project-zones-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+}
+
+.installer-project-zone-card {
+  position: relative;
+  min-height: 218px;
+  padding: 16px;
+  border: 1px solid rgba(191, 202, 186, 0.9);
+  border-radius: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  text-align: left;
+  box-shadow: 0 10px 20px rgba(17, 28, 45, 0.05);
+}
+
+.installer-project-zone-card-alert {
+  border: 2px solid var(--danger);
+  overflow: hidden;
+}
+
+.installer-project-zone-alert-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 16px;
+  border-bottom-left-radius: 12px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-zone-alert-badge .material-symbols-outlined {
+  font-size: 12px;
+}
+
+.installer-project-zone-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-zone-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.installer-project-zone-icon-secondary {
+  background: #cee5ff;
+  color: #004a75;
+}
+
+.installer-project-zone-icon-primary {
+  background: #a3f69c;
+  color: #005312;
+}
+
+.installer-project-zone-icon-tertiary {
+  background: #cbe7f5;
+  color: #304a55;
+}
+
+.installer-project-zone-icon-accent {
+  background: rgba(13, 99, 27, 0.1);
+  color: var(--primary);
+}
+
+.installer-project-zone-edit {
+  color: var(--text-muted);
+}
+
+.installer-project-zone-content h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.installer-project-zone-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.installer-project-zone-tags span {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #e7eeff;
+  color: var(--text-muted);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
+.installer-project-zone-foot {
+  padding-top: 16px;
+  border-top: 1px solid rgba(191, 202, 186, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--text-muted);
+}
+
+.installer-project-zone-foot.alert {
+  border-top-color: rgba(186, 26, 26, 0.2);
+  color: var(--danger);
+}
+
+.installer-project-zone-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-zone-status .material-symbols-outlined {
+  font-size: 16px;
+}
+
+.installer-project-zone-status.alert .material-symbols-outlined {
+  animation: installer-project-zones-pulse 2s infinite;
+}
+
+.installer-project-zones-live-section {
+  margin-top: 32px;
+}
+
+.installer-project-zones-live-card {
+  position: relative;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(191, 202, 186, 0.9);
+  box-shadow: 0 12px 24px rgba(17, 28, 45, 0.08);
+}
+
+.installer-project-zones-live-card img,
+.installer-project-zones-live-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.installer-project-zones-live-card img {
+  object-fit: cover;
+}
+
+.installer-project-zones-live-overlay {
+  background: linear-gradient(180deg, rgba(17, 28, 45, 0.04), rgba(17, 28, 45, 0.6));
+}
+
+.installer-project-zones-live-metrics {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 16px;
+}
+
+.installer-project-zones-live-metric {
+  min-width: 0;
+  padding: 16px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.installer-project-zones-live-metric p {
+  margin: 0 0 4px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-zones-live-metric strong {
+  color: #fff;
+  font-size: 20px;
+  line-height: 28px;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .installer-project-zones-sync {
+    display: inline-flex;
+  }
 }
 
 .installer-project-detail-page {

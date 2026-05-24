@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { installerProjects } from '../../shared/mock/installer';
 
 const projectFilters = ['全部', '安装中', '待交付', '已交付', '有告警', '离线', '授权取消'] as const;
@@ -34,9 +34,9 @@ export function InstallerProjectsPage() {
     <div className="installer-projects-page">
       <header className="installer-projects-bar">
         <h1>项目</h1>
-        <button type="button" className="installer-projects-add-button" aria-label="新建项目">
+        <Link to="/installer/projects/create" className="installer-projects-add-button" aria-label="新建项目">
           <span className="material-symbols-outlined">add</span>
-        </button>
+        </Link>
       </header>
 
       <div className="installer-projects-search">
@@ -178,10 +178,6 @@ export function InstallerProjectsPage() {
           </article>
         ))}
       </div>
-
-      <button type="button" className="installer-project-fab" aria-label="新建项目">
-        <span className="material-symbols-outlined">add</span>
-      </button>
     </div>
   );
 }

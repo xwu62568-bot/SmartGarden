@@ -216,6 +216,41 @@ describe('stitched page content', () => {
     expect(screen.getByText('区域 3：中心池塘传感器报告深度 < 15%。')).toBeInTheDocument();
   });
 
+  it('shows the stitched installer project devices page', () => {
+    renderRoute('/installer/projects/p-101/devices');
+
+    expect(screen.getByRole('heading', { name: '设备' })).toBeInTheDocument();
+    expect(screen.getByText('安装中')).toBeInTheDocument();
+    expect(screen.getByText('添加设备')).toBeInTheDocument();
+    expect(screen.getAllByText('全部').length).toBeGreaterThan(0);
+    expect(screen.getByText('未配置')).toBeInTheDocument();
+    expect(screen.getByText('交付检查进度')).toBeInTheDocument();
+    expect(screen.getByText('网关在线')).toBeInTheDocument();
+    expect(screen.getByText('设备命名')).toBeInTheDocument();
+    expect(screen.getAllByText('通道配置').length).toBeGreaterThan(0);
+    expect(screen.getAllByText('通道测试').length).toBeGreaterThan(0);
+    expect(screen.getByText('户外网关')).toBeInTheDocument();
+    expect(screen.getByText('池塘水位传感器')).toBeInTheDocument();
+    expect(screen.getByText('配置保护')).toBeInTheDocument();
+    expect(screen.getByText('设备离线')).toBeInTheDocument();
+  });
+
+  it('shows the stitched installer project map page', () => {
+    renderRoute('/installer/projects/p-101/map');
+
+    expect(screen.getByRole('heading', { name: '点位图' })).toBeInTheDocument();
+    expect(screen.getByText('王先生后院')).toBeInTheDocument();
+    expect(screen.getByText('前院路灯')).toBeInTheDocument();
+    expect(screen.getByText('状态: 离线 (离线3h)')).toBeInTheDocument();
+    expect(screen.getByText('全部')).toBeInTheDocument();
+    expect(screen.getByText('灯光')).toBeInTheDocument();
+    expect(screen.getByText('水泵')).toBeInTheDocument();
+    expect(screen.getByText('传感器')).toBeInTheDocument();
+    expect(screen.getByText('控制箱')).toBeInTheDocument();
+    expect(screen.getByText('预览屋主视图')).toBeInTheDocument();
+    expect(screen.getByText('保存点位图')).toBeInTheDocument();
+  });
+
   it('shows the stitched installer customer detail page', () => {
     renderRoute('/installer/customers/c-88');
 
@@ -227,6 +262,25 @@ describe('stitched page content', () => {
     expect(screen.getByText('查看维护记录')).toBeInTheDocument();
     expect(screen.getByText('项目')).toBeInTheDocument();
     expect(screen.getByText('王先生前院灯光')).toBeInTheDocument();
+  });
+
+  it('shows the stitched installer project create page', () => {
+    renderRoute('/installer/projects/create');
+
+    expect(screen.getByRole('heading', { name: '项目信息' })).toBeInTheDocument();
+    expect(screen.getByText('项目名称')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /自动生成/ })).toBeInTheDocument();
+    expect(screen.getByText('项目地址')).toBeInTheDocument();
+    expect(screen.getByText('从客户地址导入')).toBeInTheDocument();
+    expect(screen.getByText('地图定位')).toBeInTheDocument();
+    expect(screen.getByText('天气位置')).toBeInTheDocument();
+    expect(screen.getByDisplayValue('北京市朝阳区北辰东路15号')).toBeInTheDocument();
+    expect(screen.getByText('项目时区')).toBeInTheDocument();
+    expect(screen.getByText('(UTC+08:00) 北京')).toBeInTheDocument();
+    expect(screen.getByText('项目备注')).toBeInTheDocument();
+    expect(screen.getByText('当前项目状态')).toBeInTheDocument();
+    expect(screen.getByText('安装中')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /创建项目/ })).toBeInTheDocument();
   });
 
   it('shows owner profile account and service settings', () => {
