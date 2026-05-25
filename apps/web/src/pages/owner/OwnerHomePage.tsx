@@ -1,26 +1,67 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { SectionCard } from '../../shared/ui/SectionCard';
 
 type DeviceStateMap = Record<string, boolean>;
 
+type QuickScene = {
+  name: string;
+  icon: string;
+  tone: 'primary' | 'secondary' | 'muted' | 'danger';
+  to?: string;
+};
+
+type CommonDevice = {
+  id: string;
+  name: string;
+  icon: string;
+  tone: 'primary' | 'secondary' | 'muted';
+  statusOn: string;
+  statusOff: string;
+  to?: string;
+};
+
 export function OwnerHomePage() {
   const [deviceStates, setDeviceStates] = useState<DeviceStateMap>({
     '前院路径灯': true,
-    '池塘水泵': true,
+    '喷泉泵': true,
     '喷泉': false,
   });
 
-  const quickScenes = [
-    { name: '夜景模式', icon: 'clear_night', tone: 'primary' },
-    { name: '聚会模式', icon: 'celebration', tone: 'secondary' },
-    { name: '离家模式', icon: 'home_work', tone: 'muted' },
-    { name: '全部关闭', icon: 'power_settings_new', tone: 'danger' },
+  const quickScenes: readonly QuickScene[] = [
+    { name: '夜景模式', icon: 'clear_night', tone: 'primary', to: '/owner/scenes/night' },
+    { name: '聚会模式', icon: 'celebration', tone: 'secondary', to: '/owner/scenes/party' },
+    { name: '离家模式', icon: 'home_work', tone: 'muted', to: '/owner/scenes/away' },
+    { name: '全部关闭', icon: 'power_settings_new', tone: 'danger', to: '/owner/scenes/all-off' },
   ] as const;
 
-  const commonDevices = [
-    { name: '前院路径灯', icon: 'lightbulb', tone: 'primary', statusOn: '开启 • 70%', statusOff: '关闭' },
-    { name: '池塘水泵', icon: 'water_drop', tone: 'secondary', statusOn: '运行中', statusOff: '关闭' },
-    { name: '喷泉', icon: 'sprinkler', tone: 'muted', statusOn: '运行中', statusOff: '关闭' },
+  const commonDevices: readonly CommonDevice[] = [
+    {
+      id: 'front-path-light',
+      name: '前院路径灯',
+      icon: 'lightbulb',
+      tone: 'primary',
+      statusOn: '开启 • 70%',
+      statusOff: '关闭',
+      to: '/owner/devices/front-path-light',
+    },
+    {
+      id: 'fountain-pump',
+      name: '喷泉泵',
+      icon: 'water_drop',
+      tone: 'secondary',
+      statusOn: '运行中',
+      statusOff: '关闭',
+      to: '/owner/devices/fountain-pump',
+    },
+    {
+      id: 'fountain',
+      name: '喷泉',
+      icon: 'sprinkler',
+      tone: 'muted',
+      statusOn: '运行中',
+      statusOff: '关闭',
+    },
   ] as const;
 
   const schedule = [
@@ -78,12 +119,18 @@ export function OwnerHomePage() {
         <h2 className="section-title">快速场景</h2>
         <div className="quick-scenes">
           {quickScenes.map((scene) => (
-            <button key={scene.name} type="button" className={`scene-chip scene-${scene.tone}`}>
+            <Link
+              key={scene.name}
+              to={scene.to ?? '/owner/scenes'}
+              state={{ backTo: '/owner/home' }}
+              className={`scene-chip scene-${scene.tone}`}
+              aria-label={`查看${scene.name}`}
+            >
               <div className="scene-icon-wrap">
                 <span className="material-symbols-outlined filled-icon">{scene.icon}</span>
               </div>
               <span>{scene.name}</span>
-            </button>
+            </Link>
           ))}
         </div>
       </section>
@@ -95,18 +142,38 @@ export function OwnerHomePage() {
             const enabled = deviceStates[device.name];
             return (
               <article key={device.name} className={`device-row${enabled ? '' : ' is-off'}`}>
-                <div className="device-row-main">
-                  <div className={`device-icon device-icon-${enabled ? device.tone : 'muted'}`}>
-                    <span className="material-symbols-outlined filled-icon">{device.icon}</span>
-                  </div>
-                  <div>
-                    <h3 className="device-title">{device.name}</h3>
-                    <div className={`device-status ${enabled ? device.tone : 'muted'}`}>
-                      <span className="status-dot" />
-                      <span>{enabled ? device.statusOn : device.statusOff}</span>
+                {device.to ? (
+                  <Link
+                    to={device.to}
+                    state={{ backTo: '/owner/home' }}
+                    className="device-row-main device-row-main-link"
+                    aria-label={`查看${device.name}详情`}
+                  >
+                    <div className={`device-icon device-icon-${enabled ? device.tone : 'muted'}`}>
+                      <span className="material-symbols-outlined filled-icon">{device.icon}</span>
+                    </div>
+                    <div>
+                      <h3 className="device-title">{device.name}</h3>
+                      <div className={`device-status ${enabled ? device.tone : 'muted'}`}>
+                        <span className="status-dot" />
+                        <span>{enabled ? device.statusOn : device.statusOff}</span>
+                      </div>
+                    </div>
+                  </Link>
+                ) : (
+                  <div className="device-row-main">
+                    <div className={`device-icon device-icon-${enabled ? device.tone : 'muted'}`}>
+                      <span className="material-symbols-outlined filled-icon">{device.icon}</span>
+                    </div>
+                    <div>
+                      <h3 className="device-title">{device.name}</h3>
+                      <div className={`device-status ${enabled ? device.tone : 'muted'}`}>
+                        <span className="status-dot" />
+                        <span>{enabled ? device.statusOn : device.statusOff}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
 
                 <button
                   type="button"

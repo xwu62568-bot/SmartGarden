@@ -122,9 +122,21 @@ button {
   background: #f9f9ff;
 }
 
+.page-scroll-installer-project-delivery {
+  padding: 0 0 120px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
 .page-scroll-installer-project-map {
   padding: 0 0 92px;
   overflow: hidden;
+  background: #f9f9ff;
+}
+
+.page-scroll-installer-project-maintenance {
+  padding: 0 0 120px;
+  overflow-x: hidden;
   background: #f9f9ff;
 }
 
@@ -174,8 +186,20 @@ button {
   padding: 0 20px 100px;
 }
 
+.page-scroll-installer-alert-detail {
+  padding: 0 0 32px;
+  overflow-x: hidden;
+  background: #f9f9ff;
+}
+
 .page-scroll-installer-customers {
   padding: 0 20px 100px;
+}
+
+.page-scroll-installer-customer-create {
+  padding: 0 0 140px;
+  overflow-x: hidden;
+  background: #f9f9ff;
 }
 
 .page-scroll-installer-customer-detail {
@@ -6383,6 +6407,615 @@ button {
   font-size: 24px;
 }
 
+.installer-project-maintenance-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--on-background);
+}
+
+.installer-project-maintenance-header {
+  position: sticky;
+  top: 0;
+  z-index: 24;
+  padding: 16px 20px 14px;
+  background: rgba(249, 249, 255, 0.94);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-project-maintenance-header-row,
+.installer-project-maintenance-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-maintenance-title-wrap {
+  justify-content: flex-start;
+}
+
+.installer-project-maintenance-icon-button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(231, 238, 255, 0.88);
+  color: var(--primary);
+}
+
+.installer-project-maintenance-icon-button .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.installer-project-maintenance-title-wrap h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.installer-project-maintenance-title-wrap p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.installer-project-maintenance-summary,
+.installer-project-maintenance-task,
+.installer-project-maintenance-record,
+.installer-project-maintenance-files {
+  margin: 0 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(191, 202, 186, 0.62);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.installer-project-maintenance-summary {
+  padding: 18px;
+  background: linear-gradient(180deg, rgba(240, 248, 255, 0.96), rgba(255, 255, 255, 0.96));
+}
+
+.installer-project-maintenance-summary-head,
+.installer-project-maintenance-section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-maintenance-summary-head span:first-child {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-maintenance-summary-head strong {
+  font-size: 18px;
+}
+
+.installer-project-maintenance-pill {
+  min-height: 28px;
+  padding: 0 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(13, 99, 27, 0.12);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.installer-project-maintenance-metrics {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.installer-project-maintenance-metrics div {
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(231, 238, 255, 0.55);
+}
+
+.installer-project-maintenance-metrics label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-maintenance-metrics strong {
+  font-size: 15px;
+}
+
+.installer-project-maintenance-metrics strong.good {
+  color: var(--primary);
+}
+
+.installer-project-maintenance-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-project-maintenance-section-head {
+  padding: 0 20px;
+}
+
+.installer-project-maintenance-section-head h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.installer-project-maintenance-section-head span {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.installer-project-maintenance-task-list,
+.installer-project-maintenance-record-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-project-maintenance-task {
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.installer-project-maintenance-task-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(231, 238, 255, 0.8);
+  flex: 0 0 auto;
+}
+
+.installer-project-maintenance-task-danger .installer-project-maintenance-task-icon {
+  background: rgba(255, 218, 214, 0.78);
+  color: var(--danger);
+}
+
+.installer-project-maintenance-task-secondary .installer-project-maintenance-task-icon {
+  background: rgba(206, 229, 255, 0.88);
+  color: var(--secondary);
+}
+
+.installer-project-maintenance-task-warning .installer-project-maintenance-task-icon {
+  background: rgba(255, 244, 214, 0.92);
+  color: #b26a00;
+}
+
+.installer-project-maintenance-task-copy strong,
+.installer-project-maintenance-record-body h3 {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.installer-project-maintenance-task-copy p,
+.installer-project-maintenance-record-body p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.installer-project-maintenance-record {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 88px minmax(0, 1fr);
+  gap: 14px;
+}
+
+.installer-project-maintenance-record-date span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.installer-project-maintenance-record-date strong {
+  color: var(--primary);
+  font-size: 14px;
+}
+
+.installer-project-maintenance-record-body h3 {
+  margin-top: 0;
+}
+
+.installer-project-maintenance-record-tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.installer-project-maintenance-record-tags span {
+  min-height: 26px;
+  padding: 0 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(231, 238, 255, 0.9);
+  color: var(--secondary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.installer-project-maintenance-files {
+  padding: 18px 16px;
+}
+
+.installer-project-maintenance-file-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.installer-project-maintenance-file-grid button {
+  min-height: 84px;
+  border: 1px solid rgba(191, 202, 186, 0.62);
+  border-radius: 18px;
+  background: rgba(240, 243, 255, 0.72);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--on-background);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.installer-project-maintenance-file-grid .material-symbols-outlined {
+  color: var(--primary);
+}
+
+.installer-project-maintenance-footer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 30;
+  width: min(100%, 430px);
+  transform: translateX(-50%);
+  padding: 16px 20px calc(32px + env(safe-area-inset-bottom, 0px));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  box-sizing: border-box;
+  background: rgba(249, 249, 255, 0.82);
+  border-top: 1px solid rgba(191, 202, 186, 0.28);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-project-maintenance-primary,
+.installer-project-maintenance-secondary {
+  min-width: 0;
+  min-height: 52px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.installer-project-maintenance-primary {
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+}
+
+.installer-project-maintenance-secondary {
+  border: 1px solid rgba(13, 99, 27, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary);
+}
+
+.installer-project-delivery-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--on-background);
+}
+
+.installer-project-delivery-header {
+  position: sticky;
+  top: 0;
+  z-index: 24;
+  padding: 16px 20px 14px;
+  background: rgba(249, 249, 255, 0.94);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.18);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-project-delivery-header-row,
+.installer-project-delivery-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-delivery-title-wrap {
+  justify-content: flex-start;
+}
+
+.installer-project-delivery-icon-button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(231, 238, 255, 0.88);
+  color: var(--primary);
+}
+
+.installer-project-delivery-title-wrap h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.installer-project-delivery-title-wrap p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.installer-project-delivery-hero,
+.installer-project-delivery-customer-card,
+.installer-project-delivery-check,
+.installer-project-delivery-handover-item,
+.installer-project-delivery-summary-card {
+  margin: 0 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(191, 202, 186, 0.62);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.installer-project-delivery-hero {
+  padding: 18px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 112px;
+  gap: 16px;
+  background: linear-gradient(180deg, rgba(13, 99, 27, 0.08), rgba(255, 255, 255, 0.96));
+}
+
+.installer-project-delivery-hero-copy span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-delivery-hero-copy strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.installer-project-delivery-hero-copy p,
+.installer-project-delivery-handover-copy p,
+.installer-project-delivery-summary-card p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.installer-project-delivery-progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.installer-project-delivery-progress-ring {
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at center, #ffffff 54%, transparent 55%),
+    conic-gradient(var(--primary) 0deg 270deg, rgba(13, 99, 27, 0.12) 270deg 360deg);
+  color: var(--primary);
+}
+
+.installer-project-delivery-progress-ring strong {
+  font-size: 20px;
+}
+
+.installer-project-delivery-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-project-delivery-section-head {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-project-delivery-section-head h2 {
+  margin: 0;
+  font-size: 19px;
+}
+
+.installer-project-delivery-section-head span {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.installer-project-delivery-checklist,
+.installer-project-delivery-handover-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-project-delivery-check {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.installer-project-delivery-check-icon,
+.installer-project-delivery-handover-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(231, 238, 255, 0.8);
+}
+
+.installer-project-delivery-check-done .installer-project-delivery-check-icon {
+  background: rgba(13, 99, 27, 0.12);
+  color: var(--primary);
+}
+
+.installer-project-delivery-check-pending .installer-project-delivery-check-icon {
+  background: rgba(206, 229, 255, 0.88);
+  color: var(--secondary);
+}
+
+.installer-project-delivery-check-warning .installer-project-delivery-check-icon {
+  background: rgba(255, 244, 214, 0.92);
+  color: #b26a00;
+}
+
+.installer-project-delivery-check-copy strong,
+.installer-project-delivery-handover-copy strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.installer-project-delivery-check-copy span {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.installer-project-delivery-customer-card {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.installer-project-delivery-customer-card label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.installer-project-delivery-customer-card strong {
+  font-size: 15px;
+}
+
+.installer-project-delivery-customer-card strong.good {
+  color: var(--primary);
+}
+
+.installer-project-delivery-handover-item {
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.installer-project-delivery-handover-icon {
+  color: var(--primary);
+}
+
+.installer-project-delivery-summary-card {
+  padding: 18px 16px;
+}
+
+.installer-project-delivery-footer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 30;
+  width: min(100%, 430px);
+  transform: translateX(-50%);
+  padding: 16px 20px calc(32px + env(safe-area-inset-bottom, 0px));
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  box-sizing: border-box;
+  background: rgba(249, 249, 255, 0.82);
+  border-top: 1px solid rgba(191, 202, 186, 0.28);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-project-delivery-primary,
+.installer-project-delivery-secondary {
+  min-width: 0;
+  min-height: 52px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.installer-project-delivery-primary {
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+}
+
+.installer-project-delivery-secondary {
+  border: 1px solid rgba(13, 99, 27, 0.18);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--primary);
+}
+
 .installer-alerts-page {
   display: flex;
   flex-direction: column;
@@ -6749,6 +7382,420 @@ button {
   color: #cbffc2;
 }
 
+.installer-alert-detail-page {
+  min-height: 100%;
+  padding-bottom: 32px;
+  color: var(--on-background);
+}
+
+.installer-alert-detail-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 64px;
+  margin: 0;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(249, 249, 255, 0.94);
+  border-bottom: 1px solid rgba(112, 122, 108, 0.16);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.installer-alert-detail-bar__leading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.installer-alert-detail-bar button {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--primary);
+}
+
+.installer-alert-detail-bar > button:last-child {
+  color: var(--text-muted);
+}
+
+.installer-alert-detail-bar .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.installer-alert-detail-bar h1 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.installer-alert-detail-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 16px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.installer-alert-detail-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-alert-detail-hero__title-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.installer-alert-detail-hero__title-row h2 {
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.installer-alert-detail-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.installer-alert-detail-badge {
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.installer-alert-detail-badge--severity {
+  background: var(--danger);
+  color: #fff;
+}
+
+.installer-alert-detail-badge__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+}
+
+.installer-alert-detail-badge--status {
+  background: var(--surface-container-highest);
+  color: var(--text-muted);
+  border: 1px solid rgba(112, 122, 108, 0.16);
+}
+
+.installer-alert-detail-meta-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.installer-alert-detail-meta-lines p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.installer-alert-detail-meta-lines strong {
+  color: var(--on-background);
+  font-weight: 700;
+}
+
+.installer-alert-detail-meta-lines .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.installer-alert-detail-card {
+  border-radius: 24px;
+  padding: 20px;
+}
+
+.installer-alert-detail-card--glass {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(17, 28, 45, 0.06);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.installer-alert-detail-card--protection {
+  background: rgba(13, 99, 27, 0.08);
+  border: 1px solid rgba(13, 99, 27, 0.12);
+}
+
+.installer-alert-detail-card--steps {
+  border-left: 4px solid var(--secondary);
+}
+
+.installer-alert-detail-card--handling {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.installer-alert-detail-section-title,
+.installer-alert-detail-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.installer-alert-detail-section-title {
+  justify-content: flex-start;
+  margin-bottom: 16px;
+}
+
+.installer-alert-detail-section-title .material-symbols-outlined {
+  color: var(--primary);
+  font-size: 20px;
+}
+
+.installer-alert-detail-section-title h3,
+.installer-alert-detail-card--steps h3,
+.installer-alert-detail-card--handling h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.installer-alert-detail-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 20px;
+}
+
+.installer-alert-detail-info-grid label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.installer-alert-detail-info-grid strong {
+  display: block;
+  color: var(--on-background);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.installer-alert-detail-info-grid .installer-alert-detail-value {
+  color: var(--danger);
+}
+
+.installer-alert-detail-pill {
+  min-height: 22px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.installer-alert-detail-protection-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.installer-alert-detail-protection-item {
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.68);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.installer-alert-detail-protection-item strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.installer-alert-detail-protection-item.active {
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  box-shadow: 0 8px 18px rgba(13, 99, 27, 0.14);
+}
+
+.installer-alert-detail-protection-item.active strong {
+  color: inherit;
+}
+
+.installer-alert-detail-protection-item.active .material-symbols-outlined {
+  font-size: 16px;
+  animation: installer-alert-spin 1.2s linear infinite;
+}
+
+.installer-alert-detail-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.installer-alert-detail-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.installer-alert-detail-steps li span {
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.installer-alert-detail-steps li p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.installer-alert-detail-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.installer-alert-detail-action {
+  min-height: 92px;
+  border-radius: 20px;
+  border: 1px solid rgba(112, 122, 108, 0.2);
+  background: rgba(255, 255, 255, 0.96);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--on-background);
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.installer-alert-detail-action .material-symbols-outlined {
+  font-size: 22px;
+}
+
+.installer-alert-detail-action--primary .material-symbols-outlined {
+  color: var(--primary);
+}
+
+.installer-alert-detail-action--secondary .material-symbols-outlined {
+  color: var(--secondary);
+}
+
+.installer-alert-detail-action--tertiary .material-symbols-outlined {
+  color: var(--tertiary);
+}
+
+.installer-alert-detail-card--handling textarea {
+  width: 100%;
+  min-height: 104px;
+  border: 1px solid rgba(112, 122, 108, 0.22);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: var(--surface-container-lowest);
+  color: var(--on-background);
+  font: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.installer-alert-detail-upload {
+  min-height: 48px;
+  border-radius: 16px;
+  border: 1px solid rgba(112, 122, 108, 0.22);
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--on-background);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.installer-alert-detail-upload .material-symbols-outlined {
+  color: var(--text-muted);
+}
+
+.installer-alert-detail-handling-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.installer-alert-detail-handling-button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 14px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.installer-alert-detail-handling-button--tertiary {
+  background: var(--tertiary);
+}
+
+.installer-alert-detail-handling-button--primary {
+  background: var(--primary);
+}
+
+@keyframes installer-alert-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .installer-customers-page {
   display: flex;
   flex-direction: column;
@@ -6828,6 +7875,276 @@ button {
   background: var(--primary);
   color: #fff;
   box-shadow: 0 10px 20px rgba(13, 99, 27, 0.18);
+}
+
+.installer-customer-create-page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: var(--on-background);
+}
+
+.installer-customer-create-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  background: rgba(240, 243, 255, 0.94);
+  border-bottom: 1px solid rgba(191, 202, 186, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-customer-create-topbar-main {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.installer-customer-create-back {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--primary);
+}
+
+.installer-customer-create-back .material-symbols-outlined {
+  font-size: 24px;
+}
+
+.installer-customer-create-topbar h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.installer-customer-create-main {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 24px 20px 0;
+}
+
+.installer-customer-create-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.installer-customer-create-note p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.installer-customer-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.installer-customer-create-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.installer-customer-create-field label {
+  padding-left: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.installer-customer-create-input-wrap,
+.installer-customer-create-phone-wrap,
+.installer-customer-create-address-wrap {
+  min-height: 52px;
+  border-radius: 16px;
+  border: 1px solid rgba(191, 202, 186, 0.9);
+  background: var(--surface-container-lowest);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.installer-customer-create-phone-wrap,
+.installer-customer-create-address-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.installer-customer-create-phone-wrap > span {
+  padding: 0 12px 0 16px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 700;
+  border-right: 1px solid rgba(191, 202, 186, 0.5);
+}
+
+.installer-customer-create-input-wrap:focus-within,
+.installer-customer-create-phone-wrap:focus-within,
+.installer-customer-create-address-wrap:focus-within {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(13, 99, 27, 0.1);
+}
+
+.installer-customer-create-input-wrap input,
+.installer-customer-create-phone-wrap input,
+.installer-customer-create-address-wrap input,
+.installer-customer-create-textarea-wrap textarea {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--on-background);
+  font: inherit;
+}
+
+.installer-customer-create-input-wrap input,
+.installer-customer-create-address-wrap input {
+  padding: 14px 16px;
+}
+
+.installer-customer-create-phone-wrap input {
+  padding: 14px 14px 14px 12px;
+}
+
+.installer-customer-create-input-wrap input::placeholder,
+.installer-customer-create-phone-wrap input::placeholder,
+.installer-customer-create-address-wrap input::placeholder,
+.installer-customer-create-textarea-wrap textarea::placeholder {
+  color: rgba(112, 122, 108, 0.7);
+}
+
+.installer-customer-create-address-wrap button {
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+  border: 0;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--primary);
+}
+
+.installer-customer-create-help {
+  margin: 0;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--outline);
+  font-size: 12px;
+}
+
+.installer-customer-create-help .material-symbols-outlined {
+  font-size: 14px;
+}
+
+.installer-customer-create-map-preview {
+  position: relative;
+  height: 132px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(191, 202, 186, 0.5);
+}
+
+.installer-customer-create-map-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(20%) brightness(1.05);
+}
+
+.installer-customer-create-map-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.2), transparent);
+}
+
+.installer-customer-create-map-badge {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.installer-customer-create-map-badge .material-symbols-outlined {
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.installer-customer-create-textarea-wrap {
+  min-height: 104px;
+}
+
+.installer-customer-create-textarea-wrap textarea {
+  min-height: 104px;
+  padding: 14px 16px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.installer-customer-create-footer {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 40;
+  width: min(100%, 430px);
+  transform: translateX(-50%);
+  padding: 16px 20px calc(32px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-sizing: border-box;
+  background: rgba(249, 249, 255, 0.82);
+  border-top: 1px solid rgba(191, 202, 186, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.installer-customer-create-submit,
+.installer-customer-create-secondary {
+  width: 100%;
+  min-height: 52px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.installer-customer-create-submit {
+  border: 0;
+  background: var(--primary);
+  color: #fff;
+  box-shadow: 0 14px 24px rgba(13, 99, 27, 0.2);
+}
+
+.installer-customer-create-secondary {
+  border: 2px solid rgba(13, 99, 27, 0.2);
+  background: transparent;
+  color: var(--primary);
 }
 
 .installer-customers-filters {
@@ -7766,6 +9083,7 @@ button {
   align-items: center;
   gap: 10px;
   color: var(--text);
+  text-decoration: none;
 }
 
 .scene-icon-wrap {
@@ -7819,6 +9137,12 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.device-row-main-link {
+  flex: 1 1 auto;
+  color: inherit;
+  text-decoration: none;
 }
 
 .device-icon {

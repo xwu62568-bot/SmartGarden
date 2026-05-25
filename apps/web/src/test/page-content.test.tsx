@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { App } from '../app/App';
 
@@ -203,6 +204,72 @@ describe('stitched page content', () => {
     expect(screen.getByText('今天有 2 个项目设备离线')).toBeInTheDocument();
   });
 
+  it('navigates from installer workbench pending item into alert detail page', async () => {
+    const user = userEvent.setup();
+
+    renderRoute('/installer/workbench');
+
+    await user.click(screen.getByRole('button', { name: '查看王先生后院告警详情' }));
+
+    expect(screen.getByRole('heading', { level: 1, name: '告警详情' })).toBeInTheDocument();
+    expect(screen.getByText('池塘水位低')).toBeInTheDocument();
+  });
+
+  it('shows the stitched installer alert detail page', () => {
+    renderRoute('/installer/alerts/a-001');
+
+    expect(screen.getByRole('heading', { level: 1, name: '告警详情' })).toBeInTheDocument();
+    expect(screen.getByText('池塘水位低')).toBeInTheDocument();
+    expect(screen.getByText('严重')).toBeInTheDocument();
+    expect(screen.getByText('未处理')).toBeInTheDocument();
+    expect(screen.getByText(/所属项目:/)).toBeInTheDocument();
+    expect(screen.getAllByText('王先生后院').length).toBeGreaterThan(0);
+    expect(screen.getByText('池塘水位传感器')).toBeInTheDocument();
+    expect(screen.getByText('已执行保护动作')).toBeInTheDocument();
+    expect(screen.getByText('自动防护中')).toBeInTheDocument();
+    expect(screen.getByText('建议处理步骤')).toBeInTheDocument();
+    expect(screen.getByText('查看设备详情')).toBeInTheDocument();
+    expect(screen.getByRole('textbox', { name: '处理说明' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '标记为处理中' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '标记为已解决' })).toBeInTheDocument();
+  });
+
+  it('returns to alerts list when alert detail is opened from alerts page', async () => {
+    const user = userEvent.setup();
+
+    renderRoute('/installer/alerts');
+
+    await user.click(screen.getAllByRole('button', { name: '查看详情' })[0]);
+    expect(screen.getByRole('heading', { level: 1, name: '告警详情' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: '返回告警列表' }));
+    expect(screen.getByRole('heading', { level: 1, name: '告警' })).toBeInTheDocument();
+  });
+
+  it('navigates from installer workbench new project into the create project page', async () => {
+    const user = userEvent.setup();
+
+    renderRoute('/installer/workbench');
+
+    await user.click(screen.getByRole('button', { name: /新建项目/ }));
+
+    expect(screen.getByRole('heading', { name: '项目信息' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /创建项目/ })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: '返回工作台' })).toBeInTheDocument();
+  });
+
+  it('returns to installer workbench when create project is opened from workbench', async () => {
+    const user = userEvent.setup();
+
+    renderRoute('/installer/workbench');
+
+    await user.click(screen.getByRole('button', { name: /新建项目/ }));
+    await user.click(screen.getByRole('link', { name: '返回工作台' }));
+
+    expect(screen.getByText('待处理事项')).toBeInTheDocument();
+    expect(screen.getByText('近期维护动态')).toBeInTheDocument();
+  });
+
   it('shows the stitched installer project detail page', () => {
     renderRoute('/installer/projects/p-101');
 
@@ -212,8 +279,52 @@ describe('stitched page content', () => {
     expect(screen.getByText('项目授权')).toBeInTheDocument();
     expect(screen.getByText('通道测试')).toBeInTheDocument();
     expect(screen.getByText('点位图')).toBeInTheDocument();
+    expect(screen.getByText('维护')).toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /告警/ })).not.toBeInTheDocument();
     expect(screen.getByText('最近告警')).toBeInTheDocument();
     expect(screen.getByText('区域 3：中心池塘传感器报告深度 < 15%。')).toBeInTheDocument();
+  });
+
+  it('shows the installer project maintenance page', () => {
+    renderRoute('/installer/projects/p-101/maintenance');
+
+    expect(screen.getByRole('heading', { level: 1, name: '维护记录' })).toBeInTheDocument();
+    expect(screen.getByText('维护档案')).toBeInTheDocument();
+    expect(screen.getByText('最近一次维护已同步')).toBeInTheDocument();
+    expect(screen.getByText('待处理维护项')).toBeInTheDocument();
+    expect(screen.getByText('清理池塘滤网')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2, name: '维护记录' })).toBeInTheDocument();
+    expect(screen.getByText('春季例行巡检')).toBeInTheDocument();
+    expect(screen.getByText('维护资料')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '导出维护报告' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '新增维护记录' })).toBeInTheDocument();
+  });
+
+  it('shows the installer project delivery page', () => {
+    renderRoute('/installer/projects/p-101/delivery');
+
+    expect(screen.getByRole('heading', { level: 1, name: '项目交付' })).toBeInTheDocument();
+    expect(screen.getByText('交付准备度')).toBeInTheDocument();
+    expect(screen.getByText('还差 2 项确认即可完成交付')).toBeInTheDocument();
+    expect(screen.getByText('交付检查清单')).toBeInTheDocument();
+    expect(screen.getByText('设备命名与区域归档')).toBeInTheDocument();
+    expect(screen.getByText('客户交付信息')).toBeInTheDocument();
+    expect(screen.getByText('客户姓名')).toBeInTheDocument();
+    expect(screen.getByText('交付资料与培训')).toBeInTheDocument();
+    expect(screen.getByText('项目资料包')).toBeInTheDocument();
+    expect(screen.getByText('交付备注')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '保存交付草稿' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '确认完成交付' })).toBeInTheDocument();
+  });
+
+  it('navigates from project detail into delivery page', async () => {
+    const user = userEvent.setup();
+
+    renderRoute('/installer/projects/p-101');
+
+    await user.click(screen.getByRole('link', { name: /交付项目/ }));
+
+    expect(screen.getByRole('heading', { level: 1, name: '项目交付' })).toBeInTheDocument();
   });
 
   it('shows the stitched installer project devices page', () => {
@@ -254,7 +365,7 @@ describe('stitched page content', () => {
   it('shows the stitched installer customer detail page', () => {
     renderRoute('/installer/customers/c-88');
 
-    expect(screen.getByText('安装商门户')).toBeInTheDocument();
+    expect(screen.getByText('客户详情')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: '王先生' })).toBeInTheDocument();
     expect(screen.getByText('已授权')).toBeInTheDocument();
     expect(screen.getByText('快捷操作')).toBeInTheDocument();
@@ -262,6 +373,32 @@ describe('stitched page content', () => {
     expect(screen.getByText('查看维护记录')).toBeInTheDocument();
     expect(screen.getByText('项目')).toBeInTheDocument();
     expect(screen.getByText('王先生前院灯光')).toBeInTheDocument();
+  });
+
+  it('shows the stitched installer add customer page', () => {
+    renderRoute('/installer/customers/create');
+
+    expect(screen.getByRole('heading', { name: '添加客户' })).toBeInTheDocument();
+    expect(screen.getByText('创建新客户档案以管理其灌溉设备与项目细节。')).toBeInTheDocument();
+    expect(screen.getByLabelText('客户姓名')).toBeInTheDocument();
+    expect(screen.getByLabelText('手机号')).toBeInTheDocument();
+    expect(screen.getByLabelText('电子邮箱 (可选)')).toBeInTheDocument();
+    expect(screen.getByLabelText('项目地址 (可选)')).toBeInTheDocument();
+    expect(screen.getByText('用于自动识别天气位置与时区')).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: 'Map view preview' })).toBeInTheDocument();
+    expect(screen.getByLabelText('备注 (可选)')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '保存客户' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '保存并创建项目' })).toBeInTheDocument();
+  });
+
+  it('navigates from customers page into add customer page', async () => {
+    const user = userEvent.setup();
+
+    renderRoute('/installer/customers');
+
+    await user.click(screen.getByRole('button', { name: '新建客户' }));
+
+    expect(screen.getByRole('heading', { name: '添加客户' })).toBeInTheDocument();
   });
 
   it('shows the stitched installer project create page', () => {

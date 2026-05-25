@@ -1,20 +1,29 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export function InstallerProjectCreatePage() {
+  const location = useLocation();
   const [projectName, setProjectName] = useState('');
   const [projectAddress, setProjectAddress] = useState('');
   const [weatherLocation, setWeatherLocation] = useState('北京市朝阳区北辰东路15号');
   const [projectNotes, setProjectNotes] = useState('');
+  const backTo =
+    typeof location.state === 'object' &&
+    location.state !== null &&
+    'backTo' in location.state &&
+    typeof location.state.backTo === 'string'
+      ? location.state.backTo
+      : '/installer/projects';
+  const backLabel = backTo === '/installer/workbench' ? '返回工作台' : '返回项目列表';
 
   return (
     <div className="installer-project-create-page">
       <header className="installer-project-create-topbar">
         <div className="installer-project-create-topbar-main">
           <Link
-            to="/installer/projects"
+            to={backTo}
             className="installer-project-create-back"
-            aria-label="返回项目列表"
+            aria-label={backLabel}
           >
             <span className="material-symbols-outlined">arrow_back</span>
           </Link>

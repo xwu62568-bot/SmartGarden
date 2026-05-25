@@ -214,7 +214,6 @@ export const installerProjectDetails: Record<string, InstallerProjectDetail> = {
       { id: 'plans', label: '计划', icon: 'schedule', tone: 'default' },
       { id: 'automation', label: '自动化/保护', icon: 'shield_with_heart', tone: 'default' },
       { id: 'map', label: '点位图', icon: 'map', tone: 'default' },
-      { id: 'alerts', label: '告警', icon: 'notifications_active', tone: 'danger' },
       { id: 'maintenance', label: '维护', icon: 'build', tone: 'default' },
       { id: 'delivery', label: '交付', icon: 'fact_check', tone: 'default' },
     ],

@@ -5,13 +5,16 @@ import { InstallerAutomationRulesPage } from '../pages/installer/InstallerAutoma
 import { InstallerAlertsPage } from '../pages/installer/InstallerAlertsPage';
 import { InstallerChannelConfigPage } from '../pages/installer/InstallerChannelConfigPage';
 import { InstallerChannelTestPage } from '../pages/installer/InstallerChannelTestPage';
+import { InstallerCustomerCreatePage } from '../pages/installer/InstallerCustomerCreatePage';
 import { InstallerCustomerDetailPage } from '../pages/installer/InstallerCustomerDetailPage';
 import { InstallerCustomersPage } from '../pages/installer/InstallerCustomersPage';
 import { InstallerProjectCreatePage } from '../pages/installer/InstallerProjectCreatePage';
 import { InstallerProjectDevicesPage } from '../pages/installer/InstallerProjectDevicesPage';
 import { InstallerProfilePage } from '../pages/installer/InstallerProfilePage';
 import { InstallerProjectDetailPage } from '../pages/installer/InstallerProjectDetailPage';
+import { InstallerProjectDeliveryPage } from '../pages/installer/InstallerProjectDeliveryPage';
 import { InstallerProjectMapPage } from '../pages/installer/InstallerProjectMapPage';
+import { InstallerProjectMaintenancePage } from '../pages/installer/InstallerProjectMaintenancePage';
 import { InstallerProjectPlansPage } from '../pages/installer/InstallerProjectPlansPage';
 import { InstallerProjectsPage } from '../pages/installer/InstallerProjectsPage';
 import { InstallerProjectScenesPage } from '../pages/installer/InstallerProjectScenesPage';
@@ -63,7 +66,9 @@ export function AppRoutes() {
         <Route path="projects/create" element={<InstallerProjectCreatePage />} />
         <Route path="projects/:projectId/devices/add" element={<InstallerAddDevicePage />} />
         <Route path="projects/:projectId/devices" element={<InstallerProjectDevicesPage />} />
+        <Route path="projects/:projectId/delivery" element={<InstallerProjectDeliveryPage />} />
         <Route path="projects/:projectId/map" element={<InstallerProjectMapPage />} />
+        <Route path="projects/:projectId/maintenance" element={<InstallerProjectMaintenancePage />} />
         <Route path="projects/:projectId/automation" element={<InstallerAutomationRulesPage />} />
         <Route path="projects/:projectId/channels" element={<InstallerChannelConfigPage />} />
         <Route path="projects/:projectId/channel-test" element={<InstallerChannelTestPage />} />
@@ -74,6 +79,7 @@ export function AppRoutes() {
         <Route path="alerts" element={<InstallerAlertsPage />} />
         <Route path="alerts/:alertId" element={<InstallerAlertDetailPage />} />
         <Route path="customers" element={<InstallerCustomersPage />} />
+        <Route path="customers/create" element={<InstallerCustomerCreatePage />} />
         <Route path="customers/:customerId" element={<InstallerCustomerDetailPage />} />
         <Route path="profile" element={<InstallerProfilePage />} />
       </Route>

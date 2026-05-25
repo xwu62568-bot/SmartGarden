@@ -1,11 +1,19 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { ownerScenes } from '../../shared/mock/owner';
 
 export function OwnerSceneDetailPage() {
   const { sceneId } = useParams();
+  const location = useLocation();
   const scene = ownerScenes.find((item) => item.id === sceneId);
   const [quickAccessEnabled, setQuickAccessEnabled] = useState(scene?.quickAccessEnabled ?? false);
+  const backTo =
+    typeof location.state === 'object' &&
+    location.state !== null &&
+    'backTo' in location.state &&
+    typeof location.state.backTo === 'string'
+      ? location.state.backTo
+      : '/owner/scenes';
 
   if (!scene) {
     return <div className="muted-text">未找到场景。</div>;
@@ -20,7 +28,11 @@ export function OwnerSceneDetailPage() {
         />
       </div>
       <header className="scene-detail-header">
-        <Link to="/owner/scenes" className="scene-icon-button scene-icon-button-link" aria-label="返回场景列表">
+        <Link
+          to={backTo}
+          className="scene-icon-button scene-icon-button-link"
+          aria-label={backTo === '/owner/home' ? '返回首页' : '返回场景列表'}
+        >
           <span className="material-symbols-outlined">arrow_back</span>
         </Link>
         <h2 className="scene-detail-header-title">{scene.name}</h2>

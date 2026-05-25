@@ -19,6 +19,7 @@ describe('installer customer detail page', () => {
     await user.click(screen.getByText('王先生'));
 
     expect(screen.getByRole('heading', { name: '王先生' })).toBeInTheDocument();
+    expect(screen.getByText('客户详情')).toBeInTheDocument();
     expect(screen.getByText('快捷操作')).toBeInTheDocument();
     expect(screen.getByText('项目')).toBeInTheDocument();
   });
@@ -33,7 +34,7 @@ describe('installer customer detail page', () => {
       </MemoryRouter>,
     );
 
-    expect(screen.getByText('安装商门户')).toBeInTheDocument();
+    expect(screen.getByText('客户详情')).toBeInTheDocument();
     expect(screen.getByText('已授权')).toBeInTheDocument();
     expect(screen.getByText('+86 138 0013 8000')).toBeInTheDocument();
     expect(screen.getByText('mr.wang@example.com')).toBeInTheDocument();
@@ -42,5 +43,24 @@ describe('installer customer detail page', () => {
     expect(screen.getByText('2 活跃')).toBeInTheDocument();
     expect(screen.getByText('王先生后院')).toBeInTheDocument();
     expect(screen.getByText('HW-8829A')).toBeInTheDocument();
+  });
+
+  it('returns to workbench when alert detail is opened from workbench pending card', async () => {
+    const user = userEvent.setup();
+
+    render(
+      <MemoryRouter
+        initialEntries={['/installer/workbench']}
+        future={{ v7_relativeSplatPath: true, v7_startTransition: true }}
+      >
+        <App />
+      </MemoryRouter>,
+    );
+
+    await user.click(screen.getByRole('button', { name: '查看王先生后院告警详情' }));
+    expect(screen.getByRole('heading', { level: 1, name: '告警详情' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: '返回工作台' }));
+    expect(screen.getByText('待处理事项')).toBeInTheDocument();
   });
 });

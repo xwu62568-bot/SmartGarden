@@ -139,7 +139,11 @@ export function InstallerAlertsPage() {
               </div>
 
               <div className="installer-alert-actions">
-                <button type="button" className="ghost" onClick={() => navigate(`/installer/alerts/${alert.id}`)}>
+                <button
+                  type="button"
+                  className="ghost"
+                  onClick={() => navigate(`/installer/alerts/${alert.id}`, { state: { backTo: '/installer/alerts' } })}
+                >
                   查看详情
                 </button>
                 <button type="button" className={isProcessing ? 'soft' : 'solid'}>

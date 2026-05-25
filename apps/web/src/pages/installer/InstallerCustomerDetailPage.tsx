@@ -1,9 +1,18 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { installerCustomerDetails } from '../../shared/mock/installer';
 
 export function InstallerCustomerDetailPage() {
   const { customerId } = useParams();
+  const location = useLocation();
   const detail = customerId ? installerCustomerDetails[customerId] : undefined;
+  const backTo =
+    typeof location.state === 'object' &&
+    location.state !== null &&
+    'backTo' in location.state &&
+    typeof location.state.backTo === 'string'
+      ? location.state.backTo
+      : '/installer/customers';
+  const backLabel = backTo === '/installer/workbench' ? '返回工作台' : '返回客户列表';
 
   if (!detail) {
     return <div className="muted-text">未找到客户。</div>;
@@ -13,13 +22,13 @@ export function InstallerCustomerDetailPage() {
     <div className="installer-customer-detail-page">
       <header className="installer-customer-detail-header">
         <Link
-          to="/installer/customers"
+          to={backTo}
           className="installer-customer-detail-icon-button"
-          aria-label="返回客户列表"
+          aria-label={backLabel}
         >
           <span className="material-symbols-outlined">arrow_back</span>
         </Link>
-        <div className="installer-customer-detail-header-title">安装商门户</div>
+        <div className="installer-customer-detail-header-title">客户详情</div>
         <button type="button" className="installer-customer-detail-icon-button" aria-label="搜索客户">
           <span className="material-symbols-outlined">search</span>
         </button>

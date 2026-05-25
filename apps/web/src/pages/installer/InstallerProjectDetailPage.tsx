@@ -99,6 +99,8 @@ export function InstallerProjectDetailPage() {
                     ? `/installer/projects/${detail.id}/devices/add`
                     : action.id === 'channel-test'
                       ? `/installer/projects/${detail.id}/channel-test`
+                      : action.id === 'deliver-project'
+                        ? `/installer/projects/${detail.id}/delivery`
                       : '#'
                 }
                 state={
@@ -134,6 +136,10 @@ export function InstallerProjectDetailPage() {
                       ? `/installer/projects/${detail.id}/scenes`
                       : module.id === 'automation'
                         ? `/installer/projects/${detail.id}/automation`
+                        : module.id === 'maintenance'
+                          ? `/installer/projects/${detail.id}/maintenance`
+                          : module.id === 'delivery'
+                            ? `/installer/projects/${detail.id}/delivery`
                         : '#'
               }
               className={`installer-project-detail-module-card installer-project-detail-module-card-${module.tone}`}

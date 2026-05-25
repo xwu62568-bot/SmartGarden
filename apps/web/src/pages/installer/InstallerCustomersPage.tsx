@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { installerCustomers } from '../../shared/mock/installer';
 
 const customerFilters = ['全部', '有告警 (2)', '待交付', '已取消授权'] as const;
 
 export function InstallerCustomersPage() {
+  const location = useLocation();
   const navigate = useNavigate();
   const [searchValue, setSearchValue] = useState('');
   const [activeFilter, setActiveFilter] = useState<(typeof customerFilters)[number]>('全部');
@@ -33,7 +34,7 @@ export function InstallerCustomersPage() {
     <div className="installer-customers-page">
       <header className="installer-customers-bar">
         <h1>客户</h1>
-        <button type="button" aria-label="新建客户">
+        <button type="button" aria-label="新建客户" onClick={() => navigate('/installer/customers/create', { state: { backTo: location.pathname } })}>
           <span className="material-symbols-outlined">add</span>
         </button>
       </header>
@@ -47,7 +48,12 @@ export function InstallerCustomersPage() {
             placeholder="搜索客户或项目..."
           />
         </div>
-        <button type="button" className="installer-customers-add-pill">
+        <button
+          type="button"
+          className="installer-customers-add-pill"
+          aria-label="添加客户"
+          onClick={() => navigate('/installer/customers/create', { state: { backTo: location.pathname } })}
+        >
           <span className="material-symbols-outlined">add</span>
         </button>
       </div>
@@ -72,7 +78,7 @@ export function InstallerCustomersPage() {
             className={`installer-customer-card installer-customer-card-${customer.accent ?? 'normal'}`}
             onClick={() => {
               if (stitchedCustomerDetailIds.has(customer.id)) {
-                navigate(`/installer/customers/${customer.id}`);
+                navigate(`/installer/customers/${customer.id}`, { state: { backTo: location.pathname } });
               }
             }}
           >

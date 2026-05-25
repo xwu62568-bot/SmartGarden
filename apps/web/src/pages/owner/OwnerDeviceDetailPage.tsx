@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { ownerDevices, ownerLightDeviceDetails, ownerWaterDeviceDetails } from '../../shared/mock/owner';
 import { MetricCard } from '../../shared/ui/MetricCard';
 import { SectionCard } from '../../shared/ui/SectionCard';
@@ -12,9 +12,18 @@ const waterTimerClassName = (active: boolean) =>
 
 export function OwnerDeviceDetailPage() {
   const { deviceId } = useParams();
+  const location = useLocation();
   const lightDetail = deviceId ? ownerLightDeviceDetails[deviceId] : undefined;
   const waterDetail = deviceId ? ownerWaterDeviceDetails[deviceId] : undefined;
   const fallbackDevice = ownerDevices.find((item) => item.id === deviceId);
+  const backTo =
+    typeof location.state === 'object' &&
+    location.state !== null &&
+    'backTo' in location.state &&
+    typeof location.state.backTo === 'string'
+      ? location.state.backTo
+      : '/owner/devices';
+  const backLabel = backTo === '/owner/home' ? '返回首页' : '返回设备列表';
 
   const [powerOn, setPowerOn] = useState(lightDetail?.powerOn ?? false);
   const [brightness, setBrightness] = useState(lightDetail?.brightness ?? 0);
@@ -33,7 +42,7 @@ export function OwnerDeviceDetailPage() {
       <div className="owner-light-stitch-page">
         <header className="owner-light-stitch-header">
           <div className="owner-light-stitch-header-main">
-            <Link to="/owner/devices" className="owner-light-stitch-header-button" aria-label="返回设备列表">
+            <Link to={backTo} className="owner-light-stitch-header-button" aria-label={backLabel}>
               <span className="material-symbols-outlined">arrow_back</span>
             </Link>
             <div className="owner-light-stitch-title-group">
@@ -188,7 +197,7 @@ export function OwnerDeviceDetailPage() {
       <div className="owner-water-stitch-page">
         <header className="owner-water-stitch-header">
           <div className="owner-water-stitch-header-main">
-            <Link to="/owner/devices" className="owner-water-stitch-header-button" aria-label="返回设备列表">
+            <Link to={backTo} className="owner-water-stitch-header-button" aria-label={backLabel}>
               <span className="material-symbols-outlined">arrow_back</span>
             </Link>
             <div className="owner-water-stitch-title-group">

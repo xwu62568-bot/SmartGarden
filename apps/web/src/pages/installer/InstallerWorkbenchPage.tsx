@@ -8,15 +8,15 @@ const overviewStats = [
 ] as const;
 
 const quickActions = [
-  { label: '新建项目', icon: 'add_business', tone: 'primary', to: '/installer/projects' },
+  { label: '新建项目', icon: 'add_business', tone: 'primary', to: '/installer/projects/create' },
   { label: '继续安装', icon: 'play_circle', tone: 'tertiary', to: '/installer/projects' },
   { label: '查看告警', icon: 'report_problem', tone: 'danger', to: '/installer/alerts' },
 ] as const;
 
 const pendingItems = [
-  { title: '王先生后院', badge: '水位低', count: '1 条', tone: 'warning', to: '/installer/customers/c-88' },
-  { title: '李女士花园', badge: '网关离线', count: '1 条', tone: 'danger', to: '/installer/alerts/a-001' },
-  { title: 'XX 餐厅水景', badge: '喷泉泵运行失败', count: '1 条', tone: 'danger', to: '/installer/alerts/a-002' },
+  { title: '王先生后院', badge: '水位低', count: '1 条', tone: 'warning', to: '/installer/alerts/a-001' },
+  { title: '李女士花园', badge: '网关离线', count: '1 条', tone: 'danger', to: '/installer/alerts/a-002' },
+  { title: 'XX 餐厅水景', badge: '喷泉泵运行失败', count: '1 条', tone: 'danger', to: '/installer/alerts/a-003' },
 ] as const;
 
 const maintenanceFeed = [
@@ -60,7 +60,9 @@ export function InstallerWorkbenchPage() {
             key={action.label}
             type="button"
             className="installer-quick-card"
-            onClick={() => navigate(action.to)}
+            onClick={() =>
+              navigate(action.to, action.label === '新建项目' ? { state: { backTo: '/installer/workbench' } } : undefined)
+            }
           >
             <div className={`installer-quick-icon installer-quick-icon-${action.tone}`}>
               <span className="material-symbols-outlined filled-icon">{action.icon}</span>
@@ -82,6 +84,16 @@ export function InstallerWorkbenchPage() {
             <article
               key={item.title}
               className={`installer-pending-card installer-pending-card-${item.tone}`}
+              role="button"
+              tabIndex={0}
+              aria-label={`查看${item.title}告警详情`}
+              onClick={() => navigate(item.to, { state: { backTo: '/installer/workbench' } })}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  navigate(item.to, { state: { backTo: '/installer/workbench' } });
+                }
+              }}
             >
               <div className="installer-pending-copy">
                 <strong>{item.title}</strong>
@@ -93,9 +105,7 @@ export function InstallerWorkbenchPage() {
                   </span>
                 </div>
               </div>
-              <button type="button" className="installer-pending-action" onClick={() => navigate(item.to)}>
-                查看
-              </button>
+              <span className="installer-pending-action" aria-hidden="true">查看</span>
             </article>
           ))}
         </div>
