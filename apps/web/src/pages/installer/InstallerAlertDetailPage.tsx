@@ -55,12 +55,15 @@ export function InstallerAlertDetailPage() {
     return <div className="muted-text">未找到告警。</div>;
   }
 
+  const alertTime = alert.time ?? '时间待确认';
+  const occurredAt = alertTime.includes('今日') || alertTime.includes('昨天') ? alertTime : `今日 ${alertTime}`;
+
   const detail = alertDetailContent[alert.id] ?? {
     headline: `${alert.source}${alert.title}`,
     severityLabel: alert.level === '高' ? '严重' : '提醒',
     device: alert.deviceName ?? '未关联设备',
     area: alert.deviceZone ?? '未分配区域',
-    occurredAt: alert.time.includes('今日') || alert.time.includes('昨天') ? alert.time : `今日 ${alert.time}`,
+    occurredAt,
     currentValue: alert.note ?? '等待进一步诊断',
     protectionBadge: alert.status === '处理中' ? '人工处理中' : '待确认',
     protectionActions: [
