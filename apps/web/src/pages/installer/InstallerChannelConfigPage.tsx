@@ -1,7 +1,25 @@
 import { Link, useParams } from 'react-router-dom';
 import { installerProjectDetails } from '../../shared/mock/installer';
 
-const channels = [
+type ChannelConfigRow = {
+  label: string;
+  value: string;
+  icon?: string;
+  tone: 'primary' | 'locked' | 'danger' | 'dangerLock';
+};
+
+type ChannelConfig = {
+  id: string;
+  code: string;
+  name: string;
+  icon: string;
+  iconTone: 'primary' | 'danger';
+  zone: string;
+  riskLabel?: string;
+  rows: readonly ChannelConfigRow[];
+};
+
+const channels: readonly ChannelConfig[] = [
   {
     id: 'ch1',
     code: 'CH1',

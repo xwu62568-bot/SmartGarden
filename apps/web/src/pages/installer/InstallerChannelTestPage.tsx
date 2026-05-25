@@ -1,7 +1,22 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { installerProjectDetails } from '../../shared/mock/installer';
 
-const testChannels = [
+type TestChannel = {
+  id: string;
+  code: string;
+  name: string;
+  icon: string;
+  statusLabel: string;
+  statusTone: 'neutral' | 'running';
+  duration?: string;
+  testStateLabel: string;
+  testStateTone: 'muted' | 'running' | 'success' | 'error';
+  actionLabel: string;
+  actionTone: 'primary' | 'danger' | 'outlined';
+  highlighted?: boolean;
+};
+
+const testChannels: readonly TestChannel[] = [
   {
     id: 'ch1',
     code: 'CH1',

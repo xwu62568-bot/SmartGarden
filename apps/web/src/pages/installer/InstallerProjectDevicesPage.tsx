@@ -1,7 +1,58 @@
 import { Link, useParams } from 'react-router-dom';
 import { installerProjectDetails } from '../../shared/mock/installer';
 
-const summaryCards = [
+type SummaryCard = {
+  label: string;
+  value: string;
+  tone: 'default' | 'online' | 'offline' | 'secondary' | 'danger';
+  icon?: string;
+};
+
+type ProgressItem = {
+  label: string;
+  tone: 'done' | 'idle' | 'pending';
+  icon: string;
+};
+
+type DeviceDetail = {
+  label: string;
+  value: string;
+};
+
+type DeviceCallout = {
+  icon: string;
+  text: string;
+  tone: 'primary' | 'danger';
+  detail?: string;
+};
+
+type DeviceReading = {
+  label: string;
+  value: string;
+  status: string;
+};
+
+type DeviceFooterAction = {
+  label: string;
+  tone: 'secondary' | 'muted' | 'primary' | 'solid' | 'danger';
+  to?: 'channels' | 'channel-test' | 'automation';
+};
+
+type DeviceCard = {
+  id: string;
+  icon: string;
+  title: string;
+  subtitle: string;
+  status: string;
+  statusTone: 'online' | 'offline';
+  variant: 'default' | 'danger' | 'offline';
+  details?: readonly DeviceDetail[];
+  callout?: DeviceCallout;
+  reading?: DeviceReading;
+  footer: readonly DeviceFooterAction[];
+};
+
+const summaryCards: readonly SummaryCard[] = [
   { label: '全部', value: '12', tone: 'default' },
   { label: '在线', value: '11', tone: 'online' },
   { label: '离线', value: '1', tone: 'offline' },
@@ -9,7 +60,7 @@ const summaryCards = [
   { label: '有告警', value: '1', tone: 'danger', icon: 'warning' },
 ] as const;
 
-const progressItems = [
+const progressItems: readonly ProgressItem[] = [
   { label: '网关在线', tone: 'done', icon: 'check_circle' },
   { label: '设备命名', tone: 'done', icon: 'check_circle' },
   { label: '通道配置', tone: 'idle', icon: 'circle' },
@@ -19,7 +70,7 @@ const progressItems = [
 const categoryFilters = ['全部', '网关', '灯光', '水景', '传感器'] as const;
 const zoneFilters = ['全部区域', '前院', '后院', '池塘区'] as const;
 
-const deviceCards = [
+const deviceCards: readonly DeviceCard[] = [
   {
     id: 'gateway',
     icon: 'router',
@@ -261,7 +312,7 @@ export function InstallerProjectDevicesPage() {
                   </span>
                 </div>
 
-                {'details' in device ? (
+                {device.details ? (
                   <div className="installer-project-devices-detail-grid">
                     {device.details.map((detailItem) => (
                       <div key={detailItem.label} className="installer-project-devices-detail-box">
@@ -272,17 +323,17 @@ export function InstallerProjectDevicesPage() {
                   </div>
                 ) : null}
 
-                {'callout' in device ? (
+                {device.callout ? (
                   <div className={`installer-project-devices-callout installer-project-devices-callout-${device.callout.tone}`}>
                     <span className="material-symbols-outlined">{device.callout.icon}</span>
                     <div>
                       <strong>{device.callout.text}</strong>
-                      {'detail' in device.callout ? <span>{device.callout.detail}</span> : null}
+                      {device.callout.detail ? <span>{device.callout.detail}</span> : null}
                     </div>
                   </div>
                 ) : null}
 
-                {'reading' in device ? (
+                {device.reading ? (
                   <div className="installer-project-devices-reading">
                     <span>{device.reading.label}</span>
                     <div>
